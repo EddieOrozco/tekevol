@@ -27,3 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { threshold: 0.2 });
       items.forEach(el => observer.observe(el));
     })();
+
+    document.querySelectorAll('[data-year]').forEach(el => {
+  el.textContent = new Date().getFullYear();
+});

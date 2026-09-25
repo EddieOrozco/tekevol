@@ -1,15 +1,279 @@
 /* ==========================================================================
-   Services Page — Specific Overrides
+   SERVICES PAGE — css/pages/services.css
+   Only what services.html needs. Header, footer, .container, .btn,
+   .btn-primary and .card come from your existing global CSS.
+   Mobile-first; breakpoints at 600px and 900px (matches the header).
+   Colors use variables.css tokens with brand hex fallbacks.
    ========================================================================== */
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
+
+/* --------------------------------------------------------------------------
+   PAGE HELPERS
+   Section spacing, headings and the extra button styles this page uses.
+   -------------------------------------------------------------------------- */
+
+.section { padding-block: 4rem; }
+.section-alt { background: var(--color-bg, #F7F8F6); }
+.section-dark {
+  background: var(--color-primary, #123A4A);
+  color: #C5D4D9;
+}
+.section-dark h2,
+.section-dark h3 { color: #FFFFFF; }
+
+@media (min-width: 900px) {
+  .section { padding-block: 6rem; }
 }
 
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
+/* Centered title + intro above each section */
+.section-head {
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.section-head h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  line-height: 1.15;
+}
+.section-head p { margin: 0; font-size: 1.05rem; }
+
+/* Small uppercase label above headings */
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-secondary, #4E7C8A);
+}
+
+.text-accent { color: var(--color-accent, #E1AD01); }
+
+/* Button group: stacked full-width on phones, side by side from 600px */
+.btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 600px) {
+  .btn-row { flex-direction: row; flex-wrap: wrap; }
+}
+
+/* Extra button variants (your .btn / .btn-primary stay as they are) */
+.btn-block { width: 100%; text-align: center; }
+
+.btn-outline {                       /* secondary action on light backgrounds */
+  background: transparent;
+  border: 2px solid var(--color-primary, #123A4A);
+  color: var(--color-primary, #123A4A);
+}
+.btn-outline:hover {
+  background: var(--color-primary, #123A4A);
+  color: #FFFFFF;
+}
+
+.btn-ghost {                         /* secondary action on dark backgrounds */
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  color: #FFFFFF;
+}
+.btn-ghost:hover { border-color: #FFFFFF; }
+
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   Navy band. Centered on phones, left-aligned on desktop.
+   -------------------------------------------------------------------------- */
+
+.svc-hero {
+  padding-block: 4rem 3.5rem;
+  background: var(--color-primary, #123A4A);
+  color: #C5D4D9;
+  text-align: center;
+}
+.svc-hero .eyebrow { color: var(--color-accent, #E1AD01); }
+
+.svc-hero__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 8vw, 3.75rem);
+  line-height: 1.05;
+  color: #FFFFFF;
+}
+
+.svc-hero__lead {
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 600px) {
+  .svc-hero .btn-row { justify-content: center; }
+}
+
+@media (min-width: 900px) {
+  .svc-hero { padding-block: 6rem; text-align: left; }
+  .svc-hero__title { max-width: 14ch; }
+  .svc-hero__lead { margin-left: 0; }
+  .svc-hero .btn-row { justify-content: flex-start; }
+}
+
+
+/* --------------------------------------------------------------------------
+   2. PROBLEM
+   1 column → 3 columns. Mustard top border added to your .card.
+   -------------------------------------------------------------------------- */
+
+.problem-grid { display: grid; gap: 1rem; }
+
+.problem-card { border-top: 4px solid var(--color-accent, #E1AD01); }
+.problem-card h3 { margin: 0 0 0.5rem; }
+.problem-card p { margin: 0; }
+
+@media (min-width: 900px) {
+  .problem-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+}
+
+
+/* --------------------------------------------------------------------------
+   3. PRICING
+   Cards are styled in css/pricing.css.
+   -------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------
+   4. WHAT'S INCLUDED
+   1 → 2 → 3 columns with a teal accent line on each item.
+   -------------------------------------------------------------------------- */
+
+.feature-grid { display: grid; gap: 1.75rem; }
+
+.feature {
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-secondary, #4E7C8A);
+}
+.feature h3 { margin: 0 0 0.35rem; font-size: 1.1rem; }
+.feature p { margin: 0; }
+
+@media (min-width: 600px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .feature-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem 2rem; }
+}
+
+
+/* --------------------------------------------------------------------------
+   5. HOW IT WORKS
+   CSS counter draws the numbered circles.
+   Phones: vertical list. Desktop: 4 columns.
+   -------------------------------------------------------------------------- */
+
+.steps {
+  display: grid;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  padding-left: 4rem;
+  counter-increment: step;
+}
+
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--color-accent, #E1AD01);
+  color: var(--color-heading, #0D2830);
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.step h3 { margin: 0.4rem 0; font-size: 1.15rem; }
+.step p { margin: 0; }
+
+@media (min-width: 900px) {
+  .steps { grid-template-columns: repeat(4, 1fr); }
+  .step { padding-left: 0; padding-top: 4rem; }
+}
+
+
+/* --------------------------------------------------------------------------
+   6. FAQ
+   Native <details>; default arrow swapped for a +/– icon.
+   -------------------------------------------------------------------------- */
+
+.faq-container {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 780px;
+}
+
+.faq-item {
+  background: var(--color-surface, #FFFFFF);
+  border: 1px solid rgba(18, 58, 74, 0.12);
+  border-radius: 12px;
+}
+
+.faq-item summary {
+  position: relative;
+  padding: 1.15rem 3.25rem 1.15rem 1.25rem;
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-weight: 500;
+  color: var(--color-heading, #0D2830);
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+
+/* Plus icon built from two bars; vertical bar flattens when open */
+.faq-item summary::before,
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  width: 14px;
+  height: 2px;
+  background: var(--color-secondary, #4E7C8A);
+  transition: transform 0.2s;
+}
+.faq-item summary::after { transform: rotate(90deg); }
+.faq-item[open] summary::after { transform: rotate(0); }
+
+.faq-item p { margin: 0; padding: 0 1.25rem 1.25rem; }
+
+
+/* --------------------------------------------------------------------------
+   7. FINAL CTA
+   Centered band above the footer.
+   -------------------------------------------------------------------------- */
+
+.svc-cta {
+  padding-block: 3.5rem;
+  background: var(--color-heading, #0D2830);
+  color: #C5D4D9;
+  text-align: center;
+}
+.svc-cta h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  color: #FFFFFF;
+}
+.svc-cta p { margin: 0 0 1.75rem; }
+
+@media (min-width: 600px) {
+  .svc-cta .btn-row { justify-content: center; }
 }

@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why Us — Tekevol</title>
+  <title>Why Tekevol — Web Design &amp; Local SEO Built for the Trades</title>
+  <meta name="description" content="Tekevol builds fast, hand-coded websites and local SEO for plumbers, electricians, landscapers, and HVAC pros. No bloated page builders, no jargon, you own your site.">
+  <link rel="canonical" href="https://[YOUR-DOMAIN]/why-us.html">
+
+  <!-- Open Graph (link previews on Facebook, LinkedIn, texts) -->
+  <meta property="og:title" content="Why Tekevol — Websites Built for the Trades">
+  <meta property="og:description" content="Fast websites and local marketing that make the phone ring for plumbers, electricians, landscapers, and HVAC pros.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://[YOUR-DOMAIN]/why-us.html">
+  <meta property="og:image" content="https://[YOUR-DOMAIN]/assets/images/logo/logo.webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,38 +23,402 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/why-us.css">
+
+  <script src="js/header.js" defer></script>
+
+  <!-- FAQ structured data: lets Google show these Q&As in search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I own my website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your domain, your content, and your site files belong to you. If you ever leave, we hand everything over." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to launch?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most sites launch in [2–3] weeks once we have your photos, services list, and service area." }
+      },
+      {
+        "@type": "Question",
+        "name": "I already have a website. Can you help?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We start with a free audit of your current site and Google Business Profile, then recommend whether to fix it or rebuild it." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to write the content myself?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. We interview you for 30 minutes and write the pages for you. You just review and approve." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why don't you use WordPress or Wix?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We hand-code every site. That means faster load times, fewer security holes, no plugin updates breaking things, and better scores in Google." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-
+  <!-- ===== NAV ===== -->
   <header>
     <div class="header-row container">
-      <a href="index.html">
-        <img src="assets/images/logo/logo-full.svg" alt="Tekevol" height="40">
+      <a href="index.html" class="header-logo">
+        <img src="assets/images/logo/logo.webp" alt="Tekevol" height="40">
       </a>
-      <nav>
-        <ul>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="why-us.html">Why Us</a></li>
-          <li><a href="industries.html">Industries</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="site-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <div class="header-menu" id="site-menu">
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="why-us.html" aria-current="page">Why Us</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section>
-      <div class="container">
-        <h1>Why Choose Tekevol</h1>
-        <p>Content coming soon.</p>
+
+    <!-- ===== 1. HERO ===== -->
+    <section class="why-hero">
+      <div class="container why-hero__inner">
+        <p class="eyebrow">Why Tekevol</p>
+        <h1>You're great at your trade. We're great at getting you found.</h1>
+        <p class="why-hero__lead">
+          Most agencies build for everyone. We only build for plumbers, electricians,
+          landscapers, and HVAC pros &mdash; so your website does one job: make the phone ring.
+        </p>
+        <div class="why-hero__actions">
+          <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
+          <a href="services.html#pricing" class="btn why-btn-outline">See Pricing</a>
+        </div>
       </div>
     </section>
+
+    <!-- ===== 2. THE PROBLEM ===== -->
+    <section class="why-section">
+      <div class="container why-narrow">
+        <h2>Sound familiar?</h2>
+        <ul class="why-pain">
+          <li>You paid someone for a website and haven't heard from them since.</li>
+          <li>Your site is slow on phones &mdash; where 70%+ of your customers are searching.</li>
+          <li>Your competitor shows up in the Google Map pack. You don't.</li>
+          <li>Every agency call is full of jargon, and you still don't know what you're paying for.</li>
+        </ul>
+        <p class="why-pain__close">You don't need more marketing buzzwords. You need more calls. That's what we fix.</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. DIFFERENTIATORS ===== -->
+    <section class="why-section why-section--alt" aria-labelledby="reasons-heading">
+      <div class="container">
+        <h2 id="reasons-heading" class="why-center">What makes us different</h2>
+        <div class="why-grid">
+
+          <article class="why-card">
+            <svg class="why-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.5-2.5z"/></svg>
+            <h3>Built only for the trades</h3>
+            <p>We know how your customers search &mdash; "emergency plumber near me," "panel upgrade cost." Every page is written to match.</p>
+          </article>
+
+          <article class="why-card">
+            <svg class="why-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+            <h3>Fast, hand-coded sites</h3>
+            <p>No bloated page builders or plugins. Your site loads in about a second, even on a job-site cell signal &mdash; and Google rewards that.</p>
+          </article>
+
+          <article class="why-card">
+            <svg class="why-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>
+            <h3>Designed to get calls</h3>
+            <p>Tap-to-call buttons on every screen, clear service areas, and quote forms that take 30 seconds. Pretty is nice. Calls pay the bills.</p>
+          </article>
+
+          <article class="why-card">
+            <svg class="why-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h3>Local SEO that actually works</h3>
+            <p>We manage your Google Business Profile, post weekly, monitor reviews, and clean up your listings so you show up in the Map pack.</p>
+          </article>
+
+          <article class="why-card">
+            <svg class="why-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <h3>You own everything</h3>
+            <p>Your domain, your content, your files. No hostage situations. If you ever leave, we hand it all over.</p>
+          </article>
+
+          <article class="why-card">
+            <svg class="why-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <h3>Plain-English reporting</h3>
+            <p>A simple monthly report: calls, form leads, and where you rank. No jargon. Questions? You talk directly to the person who built your site.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. COMPARISON TABLE ===== -->
+    <section class="why-section" aria-labelledby="compare-heading">
+      <div class="container">
+        <h2 id="compare-heading" class="why-center">Tekevol vs. the other options</h2>
+        <div class="why-table-wrap">
+          <table class="why-table">
+            <caption class="visually-hidden">Comparison of Tekevol, DIY website builders, and typical agencies</caption>
+            <thead>
+              <tr>
+                <th scope="col"><span class="visually-hidden">Feature</span></th>
+                <th scope="col" class="why-table__us">Tekevol</th>
+                <th scope="col">DIY builder</th>
+                <th scope="col">Typical agency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Built for the trades</th>
+                <td class="why-table__us"><span class="yes">Yes</span></td>
+                <td><span class="no">No</span></td>
+                <td><span class="no">Rarely</span></td>
+              </tr>
+              <tr>
+                <th scope="row">We write your content</th>
+                <td class="why-table__us"><span class="yes">Yes</span></td>
+                <td><span class="no">You do</span></td>
+                <td>Extra cost</td>
+              </tr>
+              <tr>
+                <th scope="row">Fast on mobile</th>
+                <td class="why-table__us"><span class="yes">Hand-coded</span></td>
+                <td>Hit or miss</td>
+                <td>Hit or miss</td>
+              </tr>
+              <tr>
+                <th scope="row">Google Business Profile management</th>
+                <td class="why-table__us"><span class="yes">Included*</span></td>
+                <td><span class="no">No</span></td>
+                <td>Extra cost</td>
+              </tr>
+              <tr>
+                <th scope="row">You own your site</th>
+                <td class="why-table__us"><span class="yes">Always</span></td>
+                <td><span class="no">Locked to platform</span></td>
+                <td>Depends on contract</td>
+              </tr>
+              <tr>
+                <th scope="row">Upfront cost</th>
+                <td class="why-table__us">From $500</td>
+                <td>Low, plus your time</td>
+                <td>$3,000&ndash;$10,000+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="why-footnote">*Included in the <a href="services.html#make-the-phone-ring">Make the Phone Ring</a> plan.</p>
+      </div>
+    </section>
+
+    <!-- ===== 5. HOW IT WORKS ===== -->
+    <section class="why-section why-section--alt" aria-labelledby="process-heading">
+      <div class="container">
+        <h2 id="process-heading" class="why-center">How it works</h2>
+        <ol class="why-steps">
+          <li>
+            <h3>Free audit</h3>
+            <p>We review your current site and Google listing and show you exactly what's costing you calls.</p>
+          </li>
+          <li>
+            <h3>30-minute interview</h3>
+            <p>Tell us about your services and service area. We write every page for you.</p>
+          </li>
+          <li>
+            <h3>Launch</h3>
+            <p>Your new site goes live in about [2&ndash;3] weeks. Hosting, SSL, and backups included.</p>
+          </li>
+          <li>
+            <h3>Grow</h3>
+            <p>We keep it secure, updated, and climbing in local search &mdash; with a report every month.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== 6. FOUNDER / TRUST ===== -->
+    <section class="why-section" aria-labelledby="founder-heading">
+      <div class="container why-founder">
+        <!-- Swap in a real headshot: assets/images/founder.webp -->
+        <img class="why-founder__photo" src="assets/images/founder.webp" alt="Eddie Orozco, founder of Tekevol" width="220" height="220" loading="lazy">
+        <div>
+          <p class="eyebrow">Who you'll work with</p>
+          <h2 id="founder-heading">A real person, not a ticket queue</h2>
+          <p>
+            I'm Eddie, the founder of Tekevol. I've spent 5+ years managing websites for enterprise
+            healthcare and multi-brand retail companies &mdash; the kind of sites where speed, uptime, and
+            accuracy can't slip. Now I bring that same standard to local trade businesses.
+          </p>
+          <p>When you call, you get me. Not an account manager, not an offshore team.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. TESTIMONIALS ===== -->
+    <!-- Uncomment once you have REAL client quotes (with permission). Never use made-up reviews.
+    <section class="why-section why-section--alt" aria-labelledby="reviews-heading">
+      <div class="container">
+        <h2 id="reviews-heading" class="why-center">What our clients say</h2>
+        <div class="why-grid">
+          <figure class="why-card">
+            <blockquote>"[Client quote]"</blockquote>
+            <figcaption>&mdash; [Name], [Business], [City]</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ===== 8. FAQ ===== -->
+    <section class="why-section why-section--alt" aria-labelledby="faq-heading">
+      <div class="container why-narrow">
+        <h2 id="faq-heading" class="why-center">Common questions</h2>
+        <div class="why-faq">
+          <details>
+            <summary>Do I own my website?</summary>
+            <p>Yes. Your domain, your content, and your site files belong to you. If you ever leave, we hand everything over.</p>
+          </details>
+          <details>
+            <summary>How long does it take to launch?</summary>
+            <p>Most sites launch in [2&ndash;3] weeks once we have your photos, services list, and service area.</p>
+          </details>
+          <details>
+            <summary>I already have a website. Can you help?</summary>
+            <p>Yes. We start with a free audit of your current site and Google Business Profile, then recommend whether to fix it or rebuild it.</p>
+          </details>
+          <details>
+            <summary>Do I have to write the content myself?</summary>
+            <p>No. We interview you for 30 minutes and write the pages for you. You just review and approve.</p>
+          </details>
+          <details>
+            <summary>Why don't you use WordPress or Wix?</summary>
+            <p>We hand-code every site. That means faster load times, fewer security holes, no plugin updates breaking things, and better scores in Google.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 9. FINAL CTA ===== -->
+    <section class="why-cta">
+      <div class="container why-narrow why-center">
+        <h2>Find out what's costing you calls</h2>
+        <p>Get a free, no-pressure audit of your website and Google listing. Takes 15 minutes.</p>
+        <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Tekevol. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-main">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Tekevol home">
+          <img src="assets/images/logo/logo.webp" alt="Tekevol" width="160" height="40" loading="lazy">
+        </a>
+        <p class="footer-tagline">Websites and local marketing for plumbers, electricians, landscapers, and the trades.</p>
+        <div class="footer-social">
+          <a href="[FACEBOOK-URL]" aria-label="Tekevol on Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg>
+          </a>
+          <a href="[INSTAGRAM-URL]" aria-label="Tekevol on Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="[LINKEDIN-URL]" aria-label="Tekevol on LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4zm5 6h3.8v1.7c.5-1 1.9-2 3.9-2 4.1 0 4.3 2.7 4.3 6.1V21h-4v-5.5c0-1.4 0-3.1-1.9-3.1s-2.1 1.5-2.1 3V21h-4z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Link columns -->
+      <nav class="footer-links-group" aria-label="Footer">
+        <div>
+          <h3 class="footer-heading">Company</h3>
+          <ul class="footer-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-heading">Services</h3>
+          <ul class="footer-list">
+            <li><a href="services.html#keep-the-lights-on">Website &amp; Hosting</a></li>
+            <li><a href="services.html#make-the-phone-ring">Local SEO</a></li>
+            <li><a href="services.html#make-the-phone-ring">Google Business Profile</a></li>
+            <li><a href="services.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-heading">Industries</h3>
+          <ul class="footer-list">
+            <li><a href="industries.html#plumbing">Plumbing</a></li>
+            <li><a href="industries.html#electrical">Electrical</a></li>
+            <li><a href="industries.html#landscaping">Landscaping</a></li>
+            <li><a href="industries.html#hvac">HVAC</a></li>
+            <li><a href="industries.html">See all</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="footer-heading">Get in Touch</h3>
+        <address class="footer-contact">
+          <div class="footer-contact__item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>
+            <a href="tel:+1[PHONE-DIGITS]" class="footer-contact__phone">[PHONE]</a>
+          </div>
+          <div class="footer-contact__item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+            <a href="mailto:[EMAIL]">[EMAIL]</a>
+          </div>
+          <div class="footer-contact__item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Serving [CITY / REGION]</span>
+          </div>
+          <div class="footer-contact__item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>Mon–Fri, 8am–5pm</span>
+          </div>
+        </address>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom__inner">
+        <p style="margin:0">&copy; <span data-year>2026</span> Tekevol. All rights reserved.</p>
+        <ul class="footer-bottom__links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
