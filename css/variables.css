@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Tekevol — Brand Variables
+   Palette C
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-primary: #123A4A;      /* Deep navy — headers, primary buttons */
+  --color-secondary: #4E7C8A;    /* Muted teal — secondary elements */
+  --color-accent: #E1AD01;       /* Mustard — CTAs, highlights */
+  --color-background: #F7F8F6;   /* Off-white — page background */
+  --color-surface: #FFFFFF;      /* White — cards, surfaces */
+  --color-heading: #0D2830;      /* Dark navy-teal — headings */
+  --color-body: #4A5560;         /* Slate gray — body text */
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing (adjust as needed) */
+  --spacing-section: 96px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tekevol — Websites That Bring You More Customers</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pricing.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+
+  <link rel="preload" as="image" href="assets/images/hero/hero-mobile.webp" media="(max-width: 767px)">
+  <link rel="preload" as="image" href="assets/images/hero/hero.webp" media="(min-width: 768px)">
+  
+</head>
+<script src="js/header.js" defer></script>
+<body>
+
+  <header>
+  <div class="header-row container">
+    <a href="index.html" class="header-logo">
+      <img src="assets/images/logo/logo.webp" alt="Tekevol" height="40">
+    </a>
+ 
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="site-menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+ 
+    <div class="header-menu" id="site-menu">
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="why-us.html">Why Us</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>A Website That Brings You More Customers</h1>
+        <p class="subheadline">
+          We design and build fast, modern websites that turn visitors into leads —
+          without the agency runaround.
+        </p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn btn-accent">Get Your Free Audit</a>
+          <a href="services.html" class="btn btn-outline">See Our Services</a>
+        </div>
+        <p class="cta-note">No obligation. Takes less than 2 minutes.</p>
+      </div>
+    </section>
+
+    <!-- Trust Bar, Problem/Empathy, Services, Why Choose Us,
+         Process, Industries, FAQ, Final CTA sections go here -->
+  </main>
+  
+  <!-- Trust strip -->
+  <section class="trust-strip" aria-label="Why trades businesses choose Tekevol">
+    <div class="container">
+      <ul class="trust-list">
+        <li class="trust-item">
+          <span class="trust-value">7 days</span>
+          <span class="trust-label">Average launch time</span>
+        </li>
+        <li class="trust-item">
+          <span class="trust-value">Mobile-first</span>
+          <span class="trust-label">Built for customers on their phones</span>
+        </li>
+        <li class="trust-item">
+          <span class="trust-value">Local SEO</span>
+          <span class="trust-label">Set up to show in "near me" searches</span>
+        </li>
+        <li class="trust-item">
+          <span class="trust-value">Flat pricing</span>
+          <span class="trust-label">No surprise invoices</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="pricing__header">
+      <p class="pricing__eyebrow">Pricing Plans</p>
+      <h2 class="pricing__title">Choose the plan that fits your business</h2>
+      <p class="pricing__subtitle">
+        From getting online to owning your local market — start where you are and grow into more support as you need it.
+      </p>
+    </div>
+  
+    <div class="pricing__grid">
+  
+      <!-- Tier 1 -->
+      <article class="pricing-card">
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__name">Keep the Lights On</h3>
+          <p class="pricing-card__tagline">A professional site, built for your business live and protected.</p>
+        </div>
+  
+        <div class="pricing-card__price">
+          <span class="pricing-card__monthly">$97 / mo</span>
+          <span class="pricing-card__unit">Plus a one time setup fee of $500</span>
+          <!-- <div class="pricing-card__amount">$500</div> -->
+        </div>
+  
+        <a href="#contact" class="btn btn--outline">Get Started</a>
+  
+        <hr class="pricing-card__divider">
+  
+        <ul class="pricing-card__features">
+          <li>5–6 page custom website</li>
+          <li>Hosting &amp; SSL included</li>
+          <li>Daily backups</li>
+          <li>Security &amp; updates</li>
+        </ul>
+  
+        <p class="pricing-card__best-for">Best for: getting online professionally</p>
+      </article>
+  
+      <!-- Tier 2 — Featured -->
+      <article class="pricing-card pricing-card--featured">
+        <span class="pricing-card__badge">Most Popular</span>
+  
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__name">Make the Phone Ring</h3>
+          <p class="pricing-card__tagline">Everything in Tier 1, plus visibility that brings in calls.</p>
+        </div>
+        
+        <div class="pricing-card__price">
+          <span class="pricing-card__monthly">$500 / mo</span>
+          <span class="pricing-card__unit">Plus a one time setup fee of $1,000</span>
+          <!-- <div class="pricing-card__amount">$500</div> -->
+        </div>
+  
+        <a href="#contact" class="btn btn--solid">Get Started</a>
+  
+        <hr class="pricing-card__divider">
+  
+        <ul class="pricing-card__features">
+          <li>Google Business Profile management</li>
+          <li>Weekly content posts</li>
+          <li>Review monitoring &amp; response</li>
+          <li>Monthly local SEO report</li>
+          <li>Citation cleanup</li>
+        </ul>
+  
+        <p class="pricing-card__best-for">Best for: businesses ready to generate leads</p>
+      </article>
+  
+      <!-- Tier 3 -->
+      <article class="pricing-card">
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__name">Full Authority</h3>
+          <p class="pricing-card__tagline">A dedicated growth partner for multi-location businesses.</p>
+        </div>
+  
+        <div class="pricing-card__price">
+          <span class="pricing-card__monthly">$1,500 / mo</span>
+          <span class="pricing-card__unit">Plus a one time setup fee of $2,000</span>
+          <!-- <div class="pricing-card__amount">$500</div> -->
+        </div>
+  
+        <a href="#contact" class="btn btn--outline">Get Started</a>
+  
+        <hr class="pricing-card__divider">
+  
+        <ul class="pricing-card__features">
+          <li>Multi-location management</li>
+          <li>Monthly SEO content</li>
+          <li>Competitor tracking</li>
+          <li>Regular strategy calls</li>
+          <li>Priority support</li>
+        </ul>
+  
+        <p class="pricing-card__best-for">Best for: multi-location operations</p>
+      </article>
+  
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Tekevol. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

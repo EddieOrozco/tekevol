@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Components — Buttons, Cards, CTAs
+   ========================================================================== */
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Cards */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: 0 4px 12px rgba(13, 40, 48, 0.06);
+}
+
+/* CTA note (e.g. "No obligation") */
+.cta-note {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  margin-top: var(--spacing-sm);
+}
+
+/* ---------- Trust strip (mobile-first) ---------- */
+.trust-strip {
+  --trust-divider: rgba(255, 255, 255, 0.15);
+  background: var(--color-primary);      /* #123A4A */
+  padding-block: 1rem;
+}
+
+/* Base / phones: 2 x 2 grid */
+.trust-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+/* Dividers for the 2 x 2 layout */
+.trust-item:nth-child(even) {
+  border-left: 1px solid var(--trust-divider);
+}
+.trust-item:nth-child(n + 3) {
+  border-top: 1px solid var(--trust-divider);
+}
+
+.trust-value {
+  font-family: var(--font-heading);      /* Space Grotesk */
+  font-size: clamp(1.125rem, 1rem + 1vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-accent);            /* #E1AD01 */
+}
+
+.trust-label {
+  font-size: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.8);
+  text-wrap: balance;
+  max-width: 22ch;
+}
+
+/* Very small phones: single column */
+@media (max-width: 359px) {
+  .trust-list { grid-template-columns: 1fr; }
+  .trust-item:nth-child(even) { border-left: 0; }
+  .trust-item + .trust-item { border-top: 1px solid var(--trust-divider); }
+}
+
+/* Desktop: one row of 4 */
+@media (min-width: 900px) {
+  .trust-strip { padding-block: 1.5rem; }
+
+  .trust-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  .trust-item {
+    padding: 0.5rem 1.25rem;
+    border-top: 0 !important;
+  }
+  .trust-item + .trust-item {
+    border-left: 1px solid var(--trust-divider);
+  }
+}

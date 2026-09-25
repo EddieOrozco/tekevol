@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Contact Page — Specific Overrides
+   ========================================================================== */
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+}
