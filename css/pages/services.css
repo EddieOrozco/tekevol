@@ -277,3 +277,128 @@
 @media (min-width: 600px) {
   .svc-cta .btn-row { justify-content: center; }
 }
+
+
+/* ==== Services Landing Page ===== */
+/* ==========================================================================
+   PRICING — css/pricing.css
+   Reusable pricing cards. Stacked on phones, 3 across at 900px+.
+   ========================================================================== */
+
+/* Grid */
+.pricing-grid {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 440px;               /* keeps a single card readable on tablets */
+  margin-inline: auto;
+  padding-top: 0.75rem;           /* room for the "Most Popular" badge */
+}
+
+@media (min-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+  }
+}
+
+/* Card */
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  background: var(--color-surface, #FFFFFF);
+  border: 1px solid rgba(18, 58, 74, 0.12);
+  border-radius: 16px;
+  scroll-margin-top: 110px;       /* footer anchor links land below the sticky header */
+}
+
+/* Featured card (Tier 2): navy with mustard border */
+.price-card--featured {
+  background: var(--color-primary, #123A4A);
+  border: 2px solid var(--color-accent, #E1AD01);
+  color: #C5D4D9;
+}
+
+@media (min-width: 900px) {
+  .price-card--featured { transform: translateY(-12px); }
+}
+
+/* "Most Popular" pill on the top edge */
+.price-card__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.35rem 0.9rem;
+  background: var(--color-accent, #E1AD01);
+  color: var(--color-heading, #0D2830);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 999px;
+}
+
+/* Name + tagline */
+.price-card__name { margin: 0; font-size: 1.35rem; }
+.price-card__tagline { margin: -0.5rem 0 0; font-size: 0.95rem; }
+
+.price-card--featured .price-card__name { color: #FFFFFF; }
+
+/* Price */
+.price-card__price {
+  padding-block: 1rem;
+  border-block: 1px solid rgba(18, 58, 74, 0.1);
+}
+.price-card--featured .price-card__price { border-color: rgba(255, 255, 255, 0.15); }
+
+.price-card__amount {
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-size: clamp(2.1rem, 6vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-heading, #0D2830);
+}
+.price-card__term { margin-left: 0.2rem; }
+.price-card__setup {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--color-secondary, #4E7C8A);
+}
+
+.price-card--featured .price-card__amount { color: #FFFFFF; }
+.price-card--featured .price-card__setup { color: var(--color-accent, #E1AD01); }
+
+/* Feature list with CSS checkmarks */
+.price-card__features {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-grow: 1;                   /* pushes buttons to the bottom so they line up */
+}
+
+.price-card__features li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.price-card__features li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.3rem;
+  width: 0.45rem;
+  height: 0.8rem;
+  border: solid var(--color-secondary, #4E7C8A);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+.price-card--featured .price-card__features li::before { border-color: var(--color-accent, #E1AD01); }
+.price-card--featured strong { color: #FFFFFF; }

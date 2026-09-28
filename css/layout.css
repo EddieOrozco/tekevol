@@ -2,13 +2,13 @@
    Layout — Header, Footer, Sections
    ========================================================================== */
  
-header {
+/* header {
   position: sticky;
   top: 0;
   z-index: 100;
   background-color: var(--color-surface);
   box-shadow: 0 2px 8px rgba(13, 40, 48, 0.08);
-}
+} */
  
 .header-row {
   display: flex;
@@ -234,9 +234,9 @@ footer {
  
 @media (min-width: 900px) {
   .footer-cta__inner {
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-between;
-    text-align: left;
+    /* text-align: left; */
   }
 }
  

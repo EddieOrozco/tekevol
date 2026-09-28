@@ -13,18 +13,33 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pricing.css">
   <link rel="stylesheet" href="css/pages/services.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/components/cards/pricing.css">
+  
 </head>
+
 <body>
   <!-- ===== Header ===== -->
   <header>
-    <div class="header-row container">
-      <a href="index.html">
-        <img src="assets/images/logo/logo-full.svg" alt="Tekevol" height="40">
-      </a>
-      <nav>
+  <div class="header-row container">
+    <a href="index.html" class="header-logo">
+      <img src="assets/images/logo/logo.webp" alt="Tekevol" height="40">
+    </a>
+ 
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="site-menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+ 
+    <div class="header-menu" id="site-menu">
+      <nav aria-label="Main">
         <ul>
           <li><a href="services.html">Services</a></li>
           <li><a href="why-us.html">Why Us</a></li>
@@ -34,7 +49,8 @@
       </nav>
       <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
     </div>
-  </header>
+  </div>
+</header>
   <!-- ===== End Header ===== -->
 
   <!-- ===== Main: Services Page ===== -->
@@ -94,76 +110,96 @@
          The ids (#pricing, #keep-the-lights-on, #make-the-phone-ring)
          match the links already in your footer.
          ============================================================ -->
-    <section class="section section-alt" id="pricing">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Plans</p>
-          <h2>Pick the plan that fits your business</h2>
-          <p>One-time setup, then a flat monthly rate. Upgrade or cancel anytime.</p>
+    <section class="pricing" id="pricing">
+    <div class="pricing__header">
+      <p class="pricing__eyebrow">Plans</p>
+      <h2 class="pricing__title">Pick the plan that fits your business</h2>
+      <p class="pricing__subtitle">
+        One-time setup, then a flat monthly rate. Upgrade or cancel anytime.
+      </p>
+    </div>
+  
+    <div class="pricing__grid">
+      <!-- Tier 1 -->
+      <article class="pricing-card">
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__name">Keep the Lights On</h3>
+          <p class="pricing-card__tagline">A professional site, built for your business live and protected.</p>
         </div>
 
-        <div class="pricing-grid">
-
-          <!-- Tier 1 -->
-          <article class="price-card" id="keep-the-lights-on">
-            <h3 class="price-card__name">Keep the Lights On</h3>
-            <p class="price-card__tagline">A professional site that's always up, safe and fast.</p>
-            <div class="price-card__price">
-              <span class="price-card__amount">$97</span><span class="price-card__term">/mo</span>
-              <p class="price-card__setup">+ $500 one-time setup</p>
-            </div>
-            <ul class="price-card__features">
-              <li>Custom 5–6 page website</li>
-              <li>Mobile-friendly design</li>
-              <li>Fast, secure hosting</li>
-              <li>SSL certificate (the padlock)</li>
-              <li>Daily backups</li>
-              <li>Security &amp; software updates</li>
-            </ul>
-            <a href="contact.html" class="btn btn-outline btn-block">Start with this plan</a>
-          </article>
-
-          <!-- Tier 2: featured -->
-          <article class="price-card price-card--featured" id="make-the-phone-ring">
-            <span class="price-card__badge">Most Popular</span>
-            <h3 class="price-card__name">Make the Phone Ring</h3>
-            <p class="price-card__tagline">Everything in Tier 1, plus local marketing that brings in calls.</p>
-            <div class="price-card__price">
-              <span class="price-card__amount">$500</span><span class="price-card__term">/mo</span>
-              <p class="price-card__setup">+ $1,000 one-time setup</p>
-            </div>
-            <ul class="price-card__features">
-              <li><strong>Everything in Tier 1</strong></li>
-              <li>Google Business Profile management</li>
-              <li>Weekly Google posts</li>
-              <li>Review monitoring</li>
-              <li>Citation cleanup</li>
-              <li>Monthly local SEO report</li>
-            </ul>
-            <a href="contact.html" class="btn btn-primary btn-block">Start with this plan</a>
-          </article>
-
-          <!-- Tier 3: TODO confirm name, price and features -->
-          <article class="price-card" id="grow-the-business">
-            <h3 class="price-card__name">Grow the Business</h3>
-            <p class="price-card__tagline">Everything in Tier 2, plus paid ads and lead tracking.</p>
-            <div class="price-card__price">
-              <span class="price-card__amount">Custom</span>
-              <p class="price-card__setup">Priced to your service area</p>
-            </div>
-            <ul class="price-card__features">
-              <li><strong>Everything in Tier 2</strong></li>
-              <li>Google Ads / Local Services Ads</li>
-              <li>Dedicated landing pages</li>
-              <li>Call tracking</li>
-              <li>Monthly strategy call</li>
-            </ul>
-            <a href="contact.html" class="btn btn-outline btn-block">Talk to us</a>
-          </article>
-
+        <div class="price-card__price">
+          <span class="price-card__amount">$97</span>
+          <span class="price-card__term">/mo</span>
+          <p class="price-card__setup">+ $500 one-time setup</p>
         </div>
-      </div>
-    </section>
+  
+        <ul class="pricing-card__features">
+          <li>5–6 page custom website</li>
+          <li>Hosting &amp; SSL included</li>
+          <li>Daily backups</li>
+          <li>Security &amp; updates</li>
+        </ul>
+        <a href="#contact" class="btn btn--outline">Get Started</a>
+  
+        <hr class="pricing-card__divider">
+        <p class="pricing-card__best-for">Best for: getting online professionally</p>
+      </article>
+  
+      <!-- Tier 2 — Featured -->
+      <article class="pricing-card pricing-card--featured">
+        <span class="pricing-card__badge">Most Popular</span>
+  
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__name">Make the Phone Ring</h3>
+          <p class="pricing-card__tagline">Everything in Tier 1, plus visibility that brings in calls.</p>
+        </div>
+        
+        <div class="price-card__price">
+          <span class="price-card__amount">$500</span><span class="price-card__term">/mo</span>
+          <p class="price-card__setup">+ $1,000 one-time setup</p>
+        </div>
+  
+        <ul class="pricing-card__features">
+          <li>Google Business Profile management</li>
+          <li>Weekly content posts</li>
+          <li>Review monitoring &amp; response</li>
+          <li>Monthly local SEO report</li>
+          <li>Citation cleanup</li>
+        </ul>
+        <a href="#contact" class="btn btn--solid">Get Started</a>
+  
+        <hr class="pricing-card__divider">
+        <p class="pricing-card__best-for">Best for: businesses ready to generate leads</p>
+      </article>
+  
+      <!-- Tier 3 -->
+      <article class="pricing-card">
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__name">Full Authority</h3>
+          <p class="pricing-card__tagline">A dedicated growth partner for multi-location businesses.</p>
+        </div>
+  
+        <div class="price-card__price">
+          <span class="price-card__amount">$1,500</span><span class="price-card__term">/mo</span>
+          <p class="price-card__setup">+ $2,000 one-time setup</p>
+        </div>
+  
+        <ul class="pricing-card__features">
+          <li>Multi-location management</li>
+          <li>Monthly SEO content</li>
+          <li>Competitor tracking</li>
+          <li>Regular strategy calls</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#contact" class="btn btn--outline">Get Started</a>
+  
+        <hr class="pricing-card__divider">
+        <p class="pricing-card__best-for">Best for: multi-location operations</p>
+      </article>
+  
+    </div>
+  </section>
+    <!-- ===== End Pricing ===== --> 
 
     <!-- ============================================================
          4. WHAT'S INCLUDED
@@ -289,10 +325,10 @@
     <!-- Brand -->
     <div class="footer-brand">
       <a href="index.html" class="footer-logo" aria-label="Tekevol home">
-        <img src="assets/images/logo/logo.webp" alt="Tekevol" width="160" height="40" loading="lazy">
+        <img src="assets/images/logo/logo_light.webp" alt="Tekevol" width="160" height="40" loading="lazy">
       </a>
       <p class="footer-tagline">Websites and local marketing for plumbers, electricians, landscapers, and the trades.</p>
-      <div class="footer-social">
+      <!-- <div class="footer-social">
         <a href="[FACEBOOK-URL]" aria-label="Tekevol on Facebook" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg>
         </a>
@@ -302,7 +338,7 @@
         <a href="[LINKEDIN-URL]" aria-label="Tekevol on LinkedIn" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4zm5 6h3.8v1.7c.5-1 1.9-2 3.9-2 4.1 0 4.3 2.7 4.3 6.1V21h-4v-5.5c0-1.4 0-3.1-1.9-3.1s-2.1 1.5-2.1 3V21h-4z"/></svg>
         </a>
-      </div>
+      </div> -->
     </div>
 
     <!-- Link columns -->
