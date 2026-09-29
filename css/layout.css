@@ -29,7 +29,23 @@
   width: auto;
   max-width: 100%;
 }
- 
+
+/* Eyebrow */
+ .eyebrow {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.eyebrow__accent{
+  color: var(--color-accent, #E1AD01);
+}
+
+
 /* Desktop: the wrapper disappears from layout, so logo / nav / button
    sit in the same row exactly as before. */
 .header-menu {

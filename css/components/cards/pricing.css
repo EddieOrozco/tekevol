@@ -15,16 +15,6 @@
   gap: var(--spacing-sm);
 }
  
-.pricing__eyebrow {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-secondary);
-}
- 
 .pricing__title {
   margin: 0;
   font-family: var(--font-heading);
