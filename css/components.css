@@ -3,46 +3,7 @@
    ========================================================================== */
 
 /* Buttons */
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  text-align: center;
-  transition: transform 0.15s ease, opacity 0.15s ease-in-out;
-}
 
-.btn:hover {
-  color: var(--color-heading);
-  transform: translateY(-2px);
-  opacity: 0.9;
-  box-shadow: 0 8px 20px rgba(225, 173, 1, 0.35);
-}
-
-.btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-surface);
-}
-
-.btn.btn-primary:hover{
-  color: #fff;
-}
-
-.btn-accent {
-  background-color: var(--color-accent);
-  color: var(--color-heading);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
-}
-
-.btn-outline:hover {
-  color: #fff;
-  border: 2px solid var(--color-accent);
-}
 
 /* Cards */
 .card {
@@ -845,4 +806,6 @@
   .quote-form__submit { transition: none; }
   .quote-form__submit:hover { transform: none; }
 }
+
+
  

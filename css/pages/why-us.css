@@ -185,34 +185,6 @@
   .why-founder__photo { margin: 0 auto; width: 160px; height: 160px; }
 }
 
-/* ---------- 8. FAQ ---------- */
-.why-faq { display: grid; gap: 12px; }
-.why-faq details {
-  background: var(--why-bg);
-  border: 1px solid var(--why-border);
-  border-radius: var(--why-radius);
-  padding: 0 20px;
-}
-.why-faq summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 18px 32px 18px 0;
-  position: relative;
-  font-weight: 600;
-  color: var(--why-heading);
-}
-.why-faq summary::-webkit-details-marker { display: none; }
-.why-faq summary::after {
-  content: "+";
-  position: absolute;
-  right: 0; top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.5rem;
-  color: var(--why-secondary);
-}
-.why-faq details[open] summary::after { content: "−"; }
-.why-faq details p { padding-bottom: 18px; margin: 0; color: var(--why-text); line-height: 1.6; }
-.why-faq summary:focus-visible { outline: 2px solid var(--why-accent); outline-offset: 4px; }
 
 /* ---------- 9. Final CTA ---------- */
 .why-cta {

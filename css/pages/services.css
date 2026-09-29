@@ -210,54 +210,6 @@
 }
 
 
-/* --------------------------------------------------------------------------
-   6. FAQ
-   Native <details>; default arrow swapped for a +/– icon.
-   -------------------------------------------------------------------------- */
-
-.faq-container {
-  display: grid;
-  gap: 0.75rem;
-  max-width: 780px;
-}
-
-.faq-item {
-  background: var(--color-surface, #FFFFFF);
-  border: 1px solid rgba(18, 58, 74, 0.12);
-  border-radius: 12px;
-}
-
-.faq-item summary {
-  position: relative;
-  padding: 1.15rem 3.25rem 1.15rem 1.25rem;
-  font-family: var(--font-heading, "Space Grotesk", sans-serif);
-  font-weight: 500;
-  color: var(--color-heading, #0D2830);
-  cursor: pointer;
-  list-style: none;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-
-/* Plus icon built from two bars; vertical bar flattens when open */
-.faq-item summary::before,
-.faq-item summary::after {
-  content: "";
-  position: absolute;
-  right: 1.25rem;
-  top: 50%;
-  width: 14px;
-  height: 2px;
-  background: var(--color-secondary, #4E7C8A);
-  transition: transform 0.2s;
-}
-.faq-item summary::after { transform: rotate(90deg); }
-.faq-item[open] summary::after { transform: rotate(0); }
-
-.faq-item p { margin: 0; padding: 0 1.25rem 1.25rem; }
-
-
-
-
 
 /* ==== Services Landing Page ===== */
 /* ==========================================================================
