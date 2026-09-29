@@ -24,10 +24,12 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages/why-us.css">
+  <link rel="stylesheet" href="css/components/sections/final-cta.css">
 
   <script src="js/header.js" defer></script>
 
   <!-- FAQ structured data: lets Google show these Q&As in search results -->
+    <!-- FAQ structured data: must match the visible FAQ section below -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,13 +42,13 @@
       },
       {
         "@type": "Question",
-        "name": "How long does it take to launch?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Most sites launch in [2–3] weeks once we have your photos, services list, and service area." }
+        "name": "Is there a long-term contract?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Plans are month-to-month. Cancel any time with 30 days' notice." }
       },
       {
         "@type": "Question",
-        "name": "I already have a website. Can you help?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We start with a free audit of your current site and Google Business Profile, then recommend whether to fix it or rebuild it." }
+        "name": "How long does it take to launch?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A typical 5–8 page small business website can be ready in about 2–4 weeks, depending on the project and how quickly we receive your content. Larger websites may take longer. We’ll talk through the timeline on our discovery call so you know what to expect." }
       },
       {
         "@type": "Question",
@@ -55,8 +57,8 @@
       },
       {
         "@type": "Question",
-        "name": "Why don't you use WordPress or Wix?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We hand-code every site. That means faster load times, fewer security holes, no plugin updates breaking things, and better scores in Google." }
+        "name": "I already have a website. Can you help?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We start with a free audit of your current site and Google Business Profile, then recommend whether to fix it or rebuild it." }
       }
     ]
   }
@@ -300,31 +302,32 @@
             <p>Yes. Your domain, your content, and your site files belong to you. If you ever leave, we hand everything over.</p>
           </details>
           <details>
-            <summary>How long does it take to launch?</summary>
-            <p>Most sites launch in [2&ndash;3] weeks once we have your photos, services list, and service area.</p>
-          </details>
+          <summary>Is there a long-term contract?</summary>
+          <p>No. Plans are month-to-month. Cancel any time with 30 days' notice.</p>
+        </details>
           <details>
-            <summary>I already have a website. Can you help?</summary>
-            <p>Yes. We start with a free audit of your current site and Google Business Profile, then recommend whether to fix it or rebuild it.</p>
+            <summary>How long does it take to launch?</summary>
+            <p>A typical 5–8 page small business website can be ready in about 2–4 weeks, depending on the project and how quickly we receive your content. Larger websites may take longer. We’ll talk through the timeline on our discovery call so you know what to expect.</p>
           </details>
           <details>
             <summary>Do I have to write the content myself?</summary>
             <p>No. We interview you for 30 minutes and write the pages for you. You just review and approve.</p>
           </details>
           <details>
-            <summary>Why don't you use WordPress or Wix?</summary>
-            <p>We hand-code every site. That means faster load times, fewer security holes, no plugin updates breaking things, and better scores in Google.</p>
+            <summary>I already have a website. Can you help?</summary>
+            <p>Yes. We start with a free audit of your current site and Google Business Profile, then recommend whether to fix it or rebuild it.</p>
           </details>
         </div>
       </div>
     </section>
 
     <!-- ===== 9. FINAL CTA ===== -->
-    <section class="why-cta">
-      <div class="container why-narrow why-center">
+    <section class="svc-cta">
+      <div class="container">
         <h2>Find out what's costing you calls</h2>
         <p>Get a free, no-pressure audit of your website and Google listing. Takes 15 minutes.</p>
-        <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
+        <a href="contact.html" class="btn btn-accent">Book Your Free Audit</a>
+        <!-- <a href="tel:+1[PHONE-DIGITS]" class="btn btn-ghost">Call [PHONE]</a> -->
       </div>
     </section>
 

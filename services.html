@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simple monthly website and local SEO plans for plumbers, electricians, landscapers, and HVAC pros. Plans from $97/mo. No long contracts.">
+  <link rel="canonical" href="https://[YOUR-DOMAIN]/services.html">
   <title>Services — Tekevol</title>
-
+   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +18,71 @@
   <link rel="stylesheet" href="css/pages/services.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/components/cards/pricing.css">
-  
+  <link rel="stylesheet" href="css/components/sections/final-cta.css">
+   <!-- Business + service plans structured data: must match the pricing cards below -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://[YOUR-DOMAIN]/#business",
+    "name": "Tekevol",
+    "url": "https://[YOUR-DOMAIN]/",
+    "logo": "https://[YOUR-DOMAIN]/assets/images/logo/logo.webp",
+    "description": "Websites, hosting, and local SEO for plumbers, electricians, landscapers, HVAC pros, and other trade businesses.",
+    "telephone": "+1[PHONE-DIGITS]",
+    "email": "[EMAIL]",
+    "areaServed": "[CITY / REGION]",
+    "openingHours": "Mo-Fr 08:00-17:00",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Website and Local SEO Plans",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Keep the Lights On",
+          "url": "https://[YOUR-DOMAIN]/services.html#keep-the-lights-on",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Website & Hosting",
+            "description": "5–6 page custom website with hosting, SSL, daily backups, and security updates."
+          },
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "price": 97, "priceCurrency": "USD", "unitCode": "MON", "unitText": "month" },
+            { "@type": "PriceSpecification", "name": "One-time setup", "price": 500, "priceCurrency": "USD" }
+          ]
+        },
+        {
+          "@type": "Offer",
+          "name": "Make the Phone Ring",
+          "url": "https://[YOUR-DOMAIN]/services.html#make-the-phone-ring",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Website + Local SEO",
+            "description": "Everything in Keep the Lights On, plus Google Business Profile management, weekly posts, review monitoring and response, citation cleanup, and a monthly local SEO report."
+          },
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "price": 500, "priceCurrency": "USD", "unitCode": "MON", "unitText": "month" },
+            { "@type": "PriceSpecification", "name": "One-time setup", "price": 1000, "priceCurrency": "USD" }
+          ]
+        },
+        {
+          "@type": "Offer",
+          "name": "Full Authority",
+          "url": "https://[YOUR-DOMAIN]/services.html#full-authority",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Multi-Location Growth",
+            "description": "Multi-location management, monthly SEO content, competitor tracking, regular strategy calls, and priority support."
+          },
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "price": 1500, "priceCurrency": "USD", "unitCode": "MON", "unitText": "month" },
+            { "@type": "PriceSpecification", "name": "One-time setup", "price": 2000, "priceCurrency": "USD" }
+          ]
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -70,8 +136,8 @@
           Simple monthly plans. No tech talk. No long contracts.
         </p>
         <div class="btn-row">
-          <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
-          <a href="tel:+1[PHONE-DIGITS]" class="btn btn-ghost">Call [PHONE]</a>
+          <a href="contact.html" class="btn btn-accent">Book Your Free Audit</a>
+          <!-- <a href="tel:+1[PHONE-DIGITS]" class="btn btn-ghost">Call [PHONE]</a> -->
         </div>
       </div>
     </section>
@@ -121,7 +187,7 @@
   
     <div class="pricing__grid">
       <!-- Tier 1 -->
-      <article class="pricing-card">
+      <article class="pricing-card" id="keep-the-lights-on">
         <div class="pricing-card__header">
           <h3 class="pricing-card__name">Keep the Lights On</h3>
           <p class="pricing-card__tagline">A professional site, built for your business live and protected.</p>
@@ -146,7 +212,7 @@
       </article>
   
       <!-- Tier 2 — Featured -->
-      <article class="pricing-card pricing-card--featured">
+      <article class="pricing-card pricing-card--featured" id="make-the-phone-ring">
         <span class="pricing-card__badge">Most Popular</span>
   
         <div class="pricing-card__header">
@@ -173,7 +239,7 @@
       </article>
   
       <!-- Tier 3 -->
-      <article class="pricing-card">
+      <article class="pricing-card" id="full-authority">
         <div class="pricing-card__header">
           <h3 class="pricing-card__name">Full Authority</h3>
           <p class="pricing-card__tagline">A dedicated growth partner for multi-location businesses.</p>
@@ -282,15 +348,19 @@
         </div>
         <details class="faq-item">
           <summary>Do I own my website?</summary>
-          <p>Yes. Your domain, your content and your photos belong to you. If you ever leave, we hand everything over.</p>
+          <p>Yes. Your domain, your content, and your site files belong to you. If you ever leave, we hand everything over.</p>
         </details>
         <details class="faq-item">
           <summary>Is there a long-term contract?</summary>
           <p>No. Plans are month-to-month. Cancel any time with 30 days' notice.</p>
         </details>
         <details class="faq-item">
-          <summary>How long until my site is live?</summary>
-          <p>Most sites launch in 2–3 weeks, depending on how quickly we get your photos and details.</p>
+          <summary>How long does it take to launch?</summary>
+          <p>A typical 5–8 page small business website can be ready in about 2–4 weeks, depending on the project and how quickly we receive your content. Larger websites may take longer. We’ll talk through the timeline on our discovery call so you know what to expect.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I have to write the content myself?</summary>
+          <p>No. We interview you for 30 minutes and write the pages for you. You just review and approve.</p>
         </details>
         <details class="faq-item">
           <summary>I already have a website. Can you help?</summary>
@@ -308,8 +378,8 @@
         <h2>Ready to get more calls?</h2>
         <p>Tell us about your business. We'll reply within one business day.</p>
         <div class="btn-row">
-          <a href="contact.html" class="btn btn-primary">Book Your Free Audit</a>
-          <a href="tel:+1[PHONE-DIGITS]" class="btn btn-ghost">Call [PHONE]</a>
+          <a href="contact.html" class="btn btn-accent">Book Your Free Audit</a>
+          <!-- <a href="tel:+1[PHONE-DIGITS]" class="btn btn-ghost">Call [PHONE]</a> -->
         </div>
       </div>
     </section>

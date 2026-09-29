@@ -256,27 +256,7 @@
 .faq-item p { margin: 0; padding: 0 1.25rem 1.25rem; }
 
 
-/* --------------------------------------------------------------------------
-   7. FINAL CTA
-   Centered band above the footer.
-   -------------------------------------------------------------------------- */
 
-.svc-cta {
-  padding-block: 3.5rem;
-  background: var(--color-heading, #0D2830);
-  color: #C5D4D9;
-  text-align: center;
-}
-.svc-cta h2 {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.75rem, 5vw, 2.25rem);
-  color: #FFFFFF;
-}
-.svc-cta p { margin: 0 0 1.75rem; }
-
-@media (min-width: 600px) {
-  .svc-cta .btn-row { justify-content: center; }
-}
 
 
 /* ==== Services Landing Page ===== */
