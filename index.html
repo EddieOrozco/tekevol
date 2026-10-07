@@ -26,9 +26,11 @@
 
   <link rel="preload" as="image" href="assets/images/hero/hero-mobile.webp" media="(max-width: 767px)">
   <link rel="preload" as="image" href="assets/images/hero/hero.webp" media="(min-width: 768px)">
-  
+  <script src="js/header.js" defer></script>
+  <script src="js/forms.js" defer></script>
 </head>
-<script src="js/header.js" defer></script>
+
+
 <body>
   <!-- ===== NAV ===== -->
   <header>
@@ -105,7 +107,7 @@
   </section>
   <!-- ===== End Trust Strip ===== -->
   <!-- ===== Problem ===== -->
-  <section class="problem-solution" aria-labelledby="ps-title">
+   <section class="problem-solution" aria-labelledby="ps-title">
     <div class="problem-solution__inner">
  
       <header class="problem-solution__header">
@@ -446,15 +448,15 @@
   
       <!-- Right: short form -->
       <div class="final-cta__card">
-        <form class="quote-form" id="quote-form" action="#" method="POST" novalidate>
+        <form class="quote-form" id="quote-form" action="#" method="POST" novalidate data-hubspot-form>
           <h3 class="quote-form__title">Get your free quote</h3>
-  
+
           <div class="quote-form__field">
             <label for="qf-name">Name</label>
-            <input id="qf-name" name="name" type="text" autocomplete="name" required placeholder="Jane Smith">
+            <input id="qf-name" name="fullname" type="text" autocomplete="name" required placeholder="Jane Smith">
             <p class="quote-form__error" aria-live="polite"></p>
           </div>
-  
+
           <div class="quote-form__row">
             <div class="quote-form__field">
               <label for="qf-phone">Phone</label>
@@ -467,32 +469,34 @@
               <p class="quote-form__error" aria-live="polite"></p>
             </div>
           </div>
-  
+
           <div class="quote-form__field">
             <label for="qf-trade">Your trade</label>
-            <select id="qf-trade" name="trade" required>
+            <select id="qf-trade" name="trade_industry" required>
               <option value="" disabled selected>Select one</option>
-              <option>Plumbing</option>
-              <option>Electrical</option>
-              <option>HVAC</option>
-              <option>Landscaping</option>
-              <option>Roofing</option>
-              <option>General contracting</option>
-              <option>Other</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Electrical">Electrical</option>
+              <option value="HVAC">HVAC</option>
+              <option value="Landscaping">Landscaping</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="Dentist">Dentist</option>
+              <option value="Other">Other</option>
             </select>
             <p class="quote-form__error" aria-live="polite"></p>
           </div>
-  
-          <!-- Honeypot (spam trap) — leave empty -->
+
+          <!-- Honeypot (spam trap) — leave empty. Must be named fax_number, NOT company. -->
           <div class="quote-form__hp" aria-hidden="true">
-            <label for="qf-company">Company</label>
-            <input id="qf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+            <label for="qf-fax">Fax number</label>
+            <input id="qf-fax" name="fax_number" type="text" tabindex="-1" autocomplete="off">
           </div>
-  
+
+          <p class="quote-form__status" role="alert" hidden></p>
+
           <button type="submit" class="btn btn--accent quote-form__submit">Get My Free Quote</button>
           <p class="quote-form__note">We'll never share your info. Reply within 1 business day.</p>
-  
-          <div class="quote-form__success" role="status" hidden>
+
+          <div class="quote-form__success" role="status" tabindex="-1" hidden>
             <strong>Thanks — we got it!</strong>
             <span>We'll be in touch within one business day.</span>
           </div>
@@ -587,6 +591,6 @@
   </div>
 </footer>
 
-  <script type="module" src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
