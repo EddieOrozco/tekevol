@@ -44,7 +44,7 @@
     email: 'Please enter a valid email address.',
     phone: 'Please enter a 10-digit phone number.',
     generic:
-      "Something went wrong and your message wasn't sent. Please try again, or email us at eddie@tekevol.com.",
+      "Something went wrong and your message wasn't sent. Please try again, or email us at support@tekevol.com.",
   };
 
   // ---- Helpers ----------------------------------------------------------
