@@ -1,0 +1,373 @@
+/* ==========================================================
+   Thank-you page: css/pages/thank-you.css
+   Mobile-first, no animations.
+   Breakpoints: 600px (large phones), 700px (two cards side
+   by side), 900px (desktop; matches the header's hamburger).
+   ========================================================== */
+
+/* ---------- Local tokens ----------
+   Each one uses your site variable if it exists, otherwise
+   the brand hex. Rename the var(--...) names to match
+   variables.css so there's one source of truth. */
+.thank-you {
+  --ty-primary: var(--color-primary, #123A4A);
+  --ty-secondary: var(--color-secondary, #4E7C8A);
+  --ty-accent: var(--color-accent, #E1AD01);
+  --ty-accent-hover: #C99A01;
+  --ty-bg: var(--color-background, #F7F8F6);
+  --ty-surface: var(--color-surface, #FFFFFF);
+  --ty-heading: var(--color-heading, #0D2830);
+  --ty-text: var(--color-text, #4A5560);
+  --ty-border: rgba(18, 58, 74, 0.12);
+  --ty-radius: 14px;
+  --ty-shadow: 0 1px 2px rgba(13, 40, 48, 0.05),
+               0 6px 18px rgba(13, 40, 48, 0.06);
+  --ty-font-heading: "Space Grotesk", system-ui, sans-serif;
+  --ty-font-body: "Inter", system-ui, sans-serif;
+  --ty-header-offset: calc(var(--header-height, 80px) + 1rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 1.5rem 1rem 3rem;
+  font-family: var(--ty-font-body);
+  color: var(--ty-text);
+}
+
+/* Cancel the site-wide section spacing; each block sets its own */
+.thank-you section,
+.thank-you aside {
+  margin: 0;
+}
+
+.thank-you h1,
+.thank-you h2,
+.thank-you h3 {
+  font-family: var(--ty-font-heading);
+  color: var(--ty-heading);
+  line-height: 1.2;
+}
+
+.thank-you p {
+  line-height: 1.6;
+}
+
+.thank-you a:focus-visible {
+  outline: 3px solid var(--ty-accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Hero ---------- */
+.thank-you__hero {
+  padding: 2rem 1.25rem;
+  text-align: center;
+  background: var(--ty-surface);
+  border: 1px solid var(--ty-border);
+  border-top: 5px solid var(--ty-accent);
+  border-radius: var(--ty-radius);
+  box-shadow: var(--ty-shadow);
+}
+
+.thank-you__badge {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--ty-primary);
+  color: var(--ty-accent);
+}
+
+.thank-you__badge svg {
+  width: 30px;
+  height: 30px;
+}
+
+.thank-you__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ty-secondary);
+}
+
+.thank-you__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.thank-you__lead {
+  max-width: 38ch;
+  margin: 0 auto;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+}
+
+/* ---------- Two cards ---------- */
+.thank-you__grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.thank-you__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.75rem 1.25rem;
+  background: var(--ty-surface);
+  border: 1px solid var(--ty-border);
+  border-radius: var(--ty-radius);
+  box-shadow: var(--ty-shadow);
+}
+
+.thank-you__card h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+}
+
+/* ---------- What happens next (inside its card) ---------- */
+.thank-you__step-list {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.thank-you__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 0.875rem;
+  align-items: start;
+}
+
+/* Thin line connecting the numbers */
+.thank-you__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: calc(1.125rem - 1px);
+  top: 2.5rem;
+  bottom: -1.125rem;
+  width: 2px;
+  background: var(--ty-border);
+}
+
+.thank-you__step-num {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--ty-accent);
+  color: var(--ty-primary);
+  font-family: var(--ty-font-heading);
+  font-weight: 700;
+}
+
+.thank-you__step h3 {
+  margin: 0.3rem 0 0.25rem;
+  font-size: 1rem;
+}
+
+.thank-you__step p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- What to have ready (inside its card) ---------- */
+.thank-you__checklist {
+  display: grid;
+  gap: 0.875rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.thank-you__checklist li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  line-height: 1.5;
+  color: var(--ty-heading);
+}
+
+.thank-you__checklist li::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgba(225, 173, 1, 0.2)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23123A4A' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E")
+    center / 0.875rem no-repeat;
+}
+
+/* Sits at the bottom of the card when the cards are side by side */
+.thank-you__note {
+  margin: auto 0 0;
+  padding: 0.875rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: var(--ty-bg);
+  border-left: 3px solid var(--ty-secondary);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ---------- Book a call strip ---------- */
+.thank-you__cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  background: var(--ty-primary);
+  border-radius: var(--ty-radius);
+  scroll-margin-top: var(--ty-header-offset);
+}
+
+.thank-you__cta-text h2 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.6rem);
+  color: #fff;
+}
+
+.thank-you__cta-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.thank-you__actions {
+  display: flex;
+  flex-direction: column; /* stacked, full-width buttons on phones */
+  gap: 0.75rem;
+}
+
+.thank-you__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px; /* comfortable tap target */
+  padding: 0.75rem 1.75rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-family: var(--ty-font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.thank-you__btn--primary {
+  background: var(--ty-accent);
+  color: var(--ty-primary);
+}
+
+.thank-you__btn--primary:hover {
+  background: var(--ty-accent-hover);
+  color: var(--ty-primary);
+  box-shadow: 0 8px 20px rgba(225, 173, 1, 0.35);
+}
+
+.thank-you__btn--ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+.thank-you__btn--ghost:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ty-primary);
+  box-shadow: 0 8px 20px rgba(225, 173, 1, 0.35);
+}
+
+/* ---------- 600px+: large phones and tablets ---------- */
+@media (min-width: 600px) {
+  .thank-you {
+    gap: 1.5rem;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .thank-you__hero {
+    padding: 2.75rem 2rem;
+  }
+
+  .thank-you__card,
+  .thank-you__cta {
+    padding: 2rem;
+  }
+
+  /* Buttons side by side */
+  .thank-you__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ---------- 700px+: cards side by side, equal size ---------- */
+@media (min-width: 700px) {
+  .thank-you__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+/* ---------- 900px+: desktop ---------- */
+@media (min-width: 900px) {
+  .thank-you {
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+
+  /* Badge on the left, text on the right */
+  .thank-you__hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.75rem;
+    align-items: center;
+    padding: 3rem;
+    text-align: left;
+  }
+
+  .thank-you__badge {
+    grid-row: 1 / span 3;
+    width: 88px;
+    height: 88px;
+    margin: 0;
+  }
+
+  .thank-you__badge svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .thank-you__lead {
+    max-width: none;
+    margin: 0;
+  }
+
+  .thank-you__grid {
+    gap: 2rem;
+  }
+
+  .thank-you__card {
+    padding: 2.25rem;
+  }
+
+  /* Text left, buttons right */
+  .thank-you__cta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.25rem 2.5rem;
+    text-align: left;
+  }
+}
