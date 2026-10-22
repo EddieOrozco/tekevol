@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Privacy Policy page — css/pages/privacy.css
+   Mobile-first. Fallback values match the Tekevol palette; swap the
+   var() names for the ones in css/variables.css if they differ.
+   ========================================================================== */
+
+.legal-container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ---------- Hero ---------- */
+
+.legal-hero {
+  background: var(--color-primary, #123A4A);
+  color: #FFFFFF;
+  padding-block: 3rem 2.5rem;
+}
+
+.legal-hero__eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-body, "Inter", system-ui, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent, #E1AD01);
+}
+
+.legal-hero__title {
+  margin: 0;
+  font-family: var(--font-heading, "Space Grotesk", system-ui, sans-serif);
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+.legal-hero__meta {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---------- Body layout ---------- */
+
+.legal-body {
+  background: var(--color-background, #F7F8F6);
+  padding-block: 2.5rem 4rem;
+}
+
+.legal-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+/* ---------- Table of contents ---------- */
+
+.legal-toc {
+  background: var(--color-surface, #FFFFFF);
+  border: 1px solid rgba(18, 58, 74, 0.12);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1rem;
+}
+
+.legal-toc__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading, "Space Grotesk", system-ui, sans-serif);
+  font-weight: 600;
+  color: var(--color-heading, #0D2830);
+}
+
+.legal-toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.9375rem;
+}
+
+.legal-toc a {
+  color: var(--color-secondary, #4E7C8A);
+  text-decoration: none;
+}
+
+.legal-toc a:hover,
+.legal-toc a:focus-visible {
+  color: var(--color-primary, #123A4A);
+  text-decoration: underline;
+}
+
+/* ---------- Content ---------- */
+
+.legal-content {
+  background: var(--color-surface, #FFFFFF);
+  border: 1px solid rgba(18, 58, 74, 0.12);
+  border-radius: 12px;
+  padding: 1.5rem 1.25rem;
+  color: var(--color-text, #4A5560);
+  font-family: var(--font-body, "Inter", system-ui, sans-serif);
+  line-height: 1.7;
+  min-width: 0; /* lets the table wrapper scroll inside the grid */
+}
+
+.legal-content__intro {
+  margin-top: 0;
+  font-size: 1.0625rem;
+  color: var(--color-heading, #0D2830);
+}
+
+.legal-content h2 {
+  margin: 2.25rem 0 0.75rem;
+  font-family: var(--font-heading, "Space Grotesk", system-ui, sans-serif);
+  font-size: 1.375rem;
+  line-height: 1.25;
+  color: var(--color-heading, #0D2830);
+  scroll-margin-top: 6rem; /* clears the sticky header on anchor jumps */
+}
+
+.legal-content p,
+.legal-content ul {
+  margin: 0 0 1rem;
+}
+
+.legal-content ul {
+  padding-left: 1.25rem;
+}
+
+.legal-content li + li {
+  margin-top: 0.35rem;
+}
+
+.legal-content a {
+  color: var(--color-secondary, #4E7C8A);
+  text-underline-offset: 2px;
+}
+
+.legal-content a:hover,
+.legal-content a:focus-visible {
+  color: var(--color-primary, #123A4A);
+}
+
+.legal-content strong {
+  color: var(--color-heading, #0D2830);
+}
+
+/* ---------- Cookie table ---------- */
+
+.legal-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  border: 1px solid rgba(18, 58, 74, 0.12);
+  border-radius: 8px;
+}
+
+.legal-table-wrap:focus-visible {
+  outline: 2px solid var(--color-accent, #E1AD01);
+  outline-offset: 2px;
+}
+
+.legal-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.legal-table th,
+.legal-table td {
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(18, 58, 74, 0.1);
+}
+
+.legal-table th {
+  background: rgba(18, 58, 74, 0.05);
+  font-weight: 600;
+  color: var(--color-heading, #0D2830);
+}
+
+.legal-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.legal-table code {
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  color: var(--color-primary, #123A4A);
+}
+
+/* ---------- Address ---------- */
+
+.legal-address {
+  font-style: normal;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-accent, #E1AD01);
+  background: var(--color-background, #F7F8F6);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ---------- Desktop ---------- */
+
+@media (min-width: 900px) {
+  .legal-hero {
+    padding-block: 4rem 3.5rem;
+  }
+
+  .legal-layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+    gap: 2.5rem;
+  }
+
+  .legal-toc {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .legal-content {
+    padding: 2.5rem 3rem;
+  }
+
+  .legal-content h2:first-of-type {
+    margin-top: 2rem;
+  }
+}
