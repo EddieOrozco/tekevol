@@ -1,0 +1,110 @@
+/* css/pages/404.css — mobile-first, no animations */
+
+.not-found {
+  background: var(--color-background, #F7F8F6);
+  padding: 4rem 1rem 5rem;
+}
+
+.not-found__inner {
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.not-found__code {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-accent, #E1AD01);
+  margin: 0 0 1rem;
+}
+
+.not-found__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--color-heading, #0D2830);
+  margin: 0 0 1rem;
+}
+
+.not-found__text {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text, #4A5560);
+  margin: 0 0 2rem;
+}
+
+.not-found__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.not-found__btn {
+  display: inline-block;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.not-found__btn--primary {
+  background: var(--color-primary, #123A4A);
+  color: #FFFFFF;
+}
+
+.not-found__btn--secondary {
+  background: var(--color-surface, #FFFFFF);
+  color: var(--color-primary, #123A4A);
+  border: 2px solid var(--color-primary, #123A4A);
+}
+
+.not-found__btn:focus-visible {
+  outline: 3px solid var(--color-accent, #E1AD01);
+  outline-offset: 2px;
+}
+
+.not-found__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.not-found__links a {
+  font-family: "Inter", sans-serif;
+  color: var(--color-secondary, #4E7C8A);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 600px) {
+  .not-found {
+    padding: 6rem 1.5rem 7rem;
+  }
+
+  .not-found__code {
+    font-size: 6rem;
+  }
+
+  .not-found__title {
+    font-size: 2.25rem;
+  }
+
+  .not-found__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .not-found__links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
