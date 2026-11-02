@@ -1,0 +1,35 @@
+---
+import type { Tier } from '@/data/pricing';
+
+interface Props {
+  tier: Tier;
+  /** Home page wraps the "Best for" line in <strong> */
+  strongBestFor?: boolean;
+}
+const { tier, strongBestFor = false } = Astro.props;
+---
+<article
+  class:list={['pricing-card', { 'pricing-card--featured': tier.featured }]}
+  id={tier.anchor}>
+  {tier.featured && <span class="pricing-card__badge">Most Popular</span>}
+
+  <div class="pricing-card__header">
+    <h3 class="pricing-card__name">{tier.name}</h3>
+    <p class="pricing-card__tagline">{tier.tagline}</p>
+  </div>
+
+  <div class="price-card__price">
+    <span class="price-card__amount">{tier.monthly}</span><span class="price-card__term">/mo</span>
+    <p class="price-card__setup">+ {tier.setup} one-time setup</p>
+  </div>
+
+  <ul class="pricing-card__features">
+    {tier.features.map((f) => <li>{f}</li>)}
+  </ul>
+  <a href="/contact" class:list={['btn', tier.featured ? 'btn--solid' : 'btn--outline']}>Get Started</a>
+
+  <hr class="pricing-card__divider" />
+  <p class="pricing-card__best-for">
+    {strongBestFor ? <strong>{tier.bestFor}</strong> : tier.bestFor}
+  </p>
+</article>

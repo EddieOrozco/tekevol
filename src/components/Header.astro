@@ -1,0 +1,46 @@
+---
+import { mainNav } from '@/data/site';
+
+interface Props {
+  cta?: { label: string; href: string; external?: boolean };
+}
+const { cta = { label: 'Book Your Free Audit', href: '/contact' } } = Astro.props;
+
+// Marks the current page in the nav (screen readers announce it)
+const current = Astro.url.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
+---
+<header>
+  <div class="header-row container">
+    <a href="/" class="header-logo">
+      <img src="/assets/images/logo/logo.webp" alt="Tekevol" height="40" />
+    </a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="site-menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <div class="header-menu" id="site-menu">
+      <nav aria-label="Main">
+        <ul>
+          {mainNav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      {cta.external ? (
+        <a href={cta.href} class="btn btn-primary" target="_blank" rel="noopener">{cta.label}</a>
+      ) : (
+        <a href={cta.href} class="btn btn-primary">{cta.label}</a>
+      )}
+    </div>
+  </div>
+</header>

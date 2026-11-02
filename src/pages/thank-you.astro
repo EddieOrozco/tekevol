@@ -1,0 +1,85 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/data/site';
+
+import '@/styles/variables.css';
+import '@/styles/reset.css';
+import '@/styles/base.css';
+import '@/styles/layout.css';
+import '@/styles/components.css';
+import '@/styles/components/buttons/button.css';
+import '@/styles/pages/thank-you.css';
+
+const steps = [
+  { title: 'We review your request', text: 'We look at your current website and how your business shows up in local search.' },
+  { title: 'We reach out', text: 'Expect a call or email within 1 business day to set up a time to talk.' },
+  { title: 'We walk you through it', text: "A short call on what's working, what isn't, and what we'd fix first." },
+];
+---
+<BaseLayout
+  title="Thank You | Tekevol"
+  description="Thanks for reaching out to Tekevol. We'll reply within one business day, or you can book a free call now."
+  robots="noindex, follow"
+  canonical={false}
+  headerCta={{ label: 'Book a call', href: site.bookingUrl, external: true }}
+>
+  <main class="thank-you">
+
+    <!-- Confirmation -->
+    <section class="thank-you__hero">
+      <div class="thank-you__badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5l4.5 4.5L19 7" />
+        </svg>
+      </div>
+      <p class="thank-you__eyebrow">Request received</p>
+      <h1 class="thank-you__title">Thanks, we got your request.</h1>
+      <p class="thank-you__lead" id="thank-you-lead">
+        We'll reach out within 1 business day by phone or email.
+      </p>
+    </section>
+
+    <!-- What happens next + What to have ready -->
+    <div class="thank-you__grid">
+      <section class="thank-you__card thank-you__steps" aria-labelledby="next-heading">
+        <h2 id="next-heading">What happens next</h2>
+        <ol class="thank-you__step-list">
+          {steps.map((s, i) => (
+            <li class="thank-you__step">
+              <span class="thank-you__step-num" aria-hidden="true">{i + 1}</span>
+              <div>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <aside class="thank-you__card thank-you__prep" aria-labelledby="prep-heading">
+        <h2 id="prep-heading">What to have ready</h2>
+        <ul class="thank-you__checklist">
+          <li>Your current website URL, if you have one</li>
+          <li>The areas you serve</li>
+          <li>The kinds of jobs you want more of</li>
+        </ul>
+        <p class="thank-you__note">
+          Don't see our email? Check your spam or promotions folder.
+        </p>
+      </aside>
+    </div>
+
+    <!-- Book a call strip -->
+    <section class="thank-you__cta" aria-labelledby="cta-heading">
+      <div class="thank-you__cta-text">
+        <h2 id="cta-heading">Want to talk sooner?</h2>
+        <p>Book a free call.</p>
+      </div>
+      <div class="thank-you__actions">
+        <a href={site.bookingUrl} class="thank-you__btn thank-you__btn--primary" target="_blank" rel="noopener">Book a call</a>
+        <a href="/services#pricing" class="thank-you__btn thank-you__btn--ghost">See our packages</a>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

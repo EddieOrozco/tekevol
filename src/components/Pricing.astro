@@ -1,0 +1,24 @@
+---
+// Pricing section used on the home and services pages.
+import PricingCard from '@/components/PricingCard.astro';
+import type { Tier } from '@/data/pricing';
+
+interface Props {
+  tiers: Tier[];
+  title: string;
+  subtitle: string;
+  strongBestFor?: boolean;
+}
+const { tiers, title, subtitle, strongBestFor } = Astro.props;
+---
+<section class="pricing" id="pricing">
+  <div class="pricing__header">
+    <p class="eyebrow">Pricing Plans</p>
+    <h2 class="pricing__title">{title}</h2>
+    <p class="pricing__subtitle">{subtitle}</p>
+  </div>
+
+  <div class="pricing__grid">
+    {tiers.map((tier) => <PricingCard tier={tier} strongBestFor={strongBestFor} />)}
+  </div>
+</section>

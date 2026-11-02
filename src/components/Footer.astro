@@ -1,0 +1,42 @@
+---
+import { footerColumns, legalLinks } from '@/data/site';
+
+// Build year; main.js also refreshes [data-year] in the browser.
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="footer-main">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <a href="/" class="footer-logo" aria-label="Tekevol home">
+        <img src="/assets/images/logo/logo_light.webp" alt="Tekevol" width="160" height="40" loading="lazy" />
+      </a>
+      <p class="footer-tagline">Websites and local marketing for plumbers, electricians, landscapers, and the trades.</p>
+      {/* Social links: add a .footer-social block here once the profiles exist */}
+    </div>
+
+    <!-- Link columns -->
+    <nav class="footer-links-group" aria-label="Footer">
+      {footerColumns.map((col) => (
+        <div>
+          <h3 class="footer-heading">{col.heading}</h3>
+          <ul class="footer-list">
+            {col.links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </nav>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom__inner">
+      <p class="footer-copy" style="margin:0">&copy; <span data-year>{year}</span> Tekevol. All rights reserved.</p>
+      <ul class="footer-bottom__links">
+        {legalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,57 @@
+---
+// Short quote form (home page). Same markup forms.js expects:
+// data-hubspot-form, .quote-form__* classes, honeypot named fax_number,
+// and HubSpot internal field names (fullname is split into first/last by JS).
+import { tradeOptions } from '@/data/industries';
+---
+<form class="quote-form" id="quote-form" action="#" method="POST" novalidate data-hubspot-form>
+  <h3 class="quote-form__title">Get your free audit</h3>
+
+  <div class="quote-form__field">
+    <label for="qf-name">Name</label>
+    <input id="qf-name" name="fullname" type="text" autocomplete="name" required placeholder="Jane Smith" />
+    <p class="quote-form__error" aria-live="polite"></p>
+  </div>
+
+  <div class="quote-form__row">
+    <div class="quote-form__field">
+      <label for="qf-phone">Phone</label>
+      <input id="qf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(555) 123-4567" />
+      <p class="quote-form__error" aria-live="polite"></p>
+    </div>
+    <div class="quote-form__field">
+      <label for="qf-email">Email</label>
+      <input id="qf-email" name="email" type="email" autocomplete="email" required placeholder="you@business.com" />
+      <p class="quote-form__error" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="quote-form__field">
+    <label for="qf-trade">Your trade</label>
+    <select id="qf-trade" name="trade_industry" required>
+      <option value="" disabled selected>Select one</option>
+      {tradeOptions.map((t) => <option value={t}>{t}</option>)}
+    </select>
+    <p class="quote-form__error" aria-live="polite"></p>
+  </div>
+
+  <!-- Honeypot (spam trap) — leave empty. Must be named fax_number, NOT company. -->
+  <div class="quote-form__hp" aria-hidden="true">
+    <label for="qf-fax">Fax number</label>
+    <input id="qf-fax" name="fax_number" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <p class="quote-form__status" role="alert" hidden></p>
+
+  <button type="submit" class="btn btn--accent quote-form__submit">Get My Free Audit</button>
+  <p class="quote-form__note">We'll never share your info. Reply within 1 business day.</p>
+
+  <div class="quote-form__success" role="status" tabindex="-1" hidden>
+    <strong>Thanks — we got it!</strong>
+    <span>We'll be in touch within one business day.</span>
+  </div>
+</form>
+
+<script>
+  import '@/scripts/forms.js';
+</script>

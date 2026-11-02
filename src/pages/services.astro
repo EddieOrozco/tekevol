@@ -1,0 +1,183 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Pricing from '@/components/Pricing.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import { servicesTiers } from '@/data/pricing';
+import { servicesFaq } from '@/data/faq';
+import { site } from '@/data/site';
+
+import '@/styles/variables.css';
+import '@/styles/reset.css';
+import '@/styles/base.css';
+import '@/styles/layout.css';
+import '@/styles/pages/services.css';
+import '@/styles/components.css';
+import '@/styles/components/cards/pricing.css';
+import '@/styles/components/buttons/button.css';
+import '@/styles/components/faq/faq.css';
+import '@/styles/components/sections/final-cta.css';
+
+const problems = [
+  { title: 'Your site is outdated or missing', text: 'Customers judge you in seconds. An old or broken site sends them to the next name on the list.' },
+  { title: "You don't show up on Google Maps", text: 'When someone searches "plumber near me," the top three get the calls. Everyone else gets scrolled past.' },
+  { title: 'Leads are going to competitors', text: 'Fewer reviews, no recent posts, wrong hours online. Small gaps that quietly cost you jobs.' },
+];
+
+const features = [
+  { title: 'SSL certificate', text: 'The padlock in the browser bar. It tells customers your site is safe to use.' },
+  { title: 'Daily backups', text: 'A fresh copy of your site every day. If anything breaks, we roll it back.' },
+  { title: 'Security & updates', text: 'We keep the behind-the-scenes software patched so hackers stay out.' },
+  { title: 'Google Business Profile', text: 'Your listing on Google Maps. We keep hours, photos and services up to date.' },
+  { title: 'Review monitoring', text: 'We watch for new reviews and flag the ones that need a reply.' },
+  { title: 'Citation cleanup', text: 'We fix your name, address and phone on Yelp, Angi and other directories so Google trusts your info.' },
+];
+
+const steps = [
+  { title: 'Free audit', text: 'A quick call to learn about your business, your area and the jobs you want more of.' },
+  { title: 'We build it', text: 'We write the copy, design the pages and set everything up. You send a few photos.' },
+  { title: 'You approve', text: "Review a preview link on your phone. Ask for changes until it's right." },
+  { title: 'Launch & maintain', text: 'We go live and keep things running every month.' },
+];
+
+// Structured data built from the same tiers shown on the page, so prices
+// can't drift. Still to fill in: telephone, areaServed (placeholders on the
+// HTML site were left out rather than published).
+const toNumber = (price: string) => Number(price.replace(/[^0-9.]/g, ''));
+const serviceNames: Record<string, { name: string; description: string }> = {
+  activate: { name: 'Website & Hosting', description: 'up to a 6 page custom website with hosting, SSL, daily backups, security updates, and perform website updates.' },
+  evolve: { name: 'Website + Local SEO', description: 'Everything in Activate & Open Your Doors, plus Google Business Profile management, weekly posts, review monitoring and response, citation cleanup, and a monthly local SEO report.' },
+  ascend: { name: 'Multi-Location Growth', description: 'Multi-location management, monthly SEO content, competitor tracking, regular strategy calls, and priority support.' },
+};
+
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  url: site.url,
+  logo: `${site.url}/assets/images/logo/logo.webp`,
+  description: 'Websites, hosting, and local SEO for plumbers, electricians, landscapers, HVAC pros, and other trade businesses.',
+  email: site.email,
+  openingHours: 'Mo-Fr 08:00-17:00',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Website and Local SEO Plans',
+    itemListElement: servicesTiers.map((t) => ({
+      '@type': 'Offer',
+      name: t.name,
+      url: `${site.url}/services#${t.anchor}`,
+      itemOffered: { '@type': 'Service', ...serviceNames[t.id] },
+      priceSpecification: [
+        { '@type': 'UnitPriceSpecification', price: toNumber(t.monthly), priceCurrency: 'USD', unitCode: 'MON', unitText: 'month' },
+        { '@type': 'PriceSpecification', name: 'One-time setup', price: toNumber(t.setup), priceCurrency: 'USD' },
+      ],
+    })),
+  },
+};
+---
+<BaseLayout
+  title="Website Design Packages | Tekevol"
+  description="Compare Tekevol's Activate, Evolve and Ascend website packages. See what's included in each and find the right fit for your business."
+>
+  <JsonLd slot="head" data={businessSchema} />
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="svc-hero">
+      <div class="container">
+        <p class="eyebrow eyebrow__accent">Services &amp; Pricing</p>
+        <h1 class="svc-hero__title">Websites that make the <span class="text-accent">phone ring.</span></h1>
+        <p class="svc-hero__lead">
+          We build, host and look after your website so you can stay on the job.
+          Simple monthly plans. No tech talk. No long contracts.
+        </p>
+        <div class="btn-row">
+          <a href="/contact" class="btn btn-accent">Book Your Free Audit</a>
+          <a href="#pricing" class="btn btn-outline">See Pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. THE PROBLEM -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Sound familiar?</h2>
+          <p>You're great at the work. Getting found online shouldn't be a second job.</p>
+        </div>
+        <div class="problem-grid">
+          {problems.map((p) => (
+            <div class="card problem-card">
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PRICING TIERS -->
+    <Pricing
+      tiers={servicesTiers}
+      title="Pick the plan that fits your business"
+      subtitle="One-time setup, then a flat monthly rate. Upgrade or cancel anytime."
+    />
+
+    <!-- 4. WHAT'S INCLUDED -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>What that means, in plain English</h2>
+        </div>
+        <div class="feature-grid">
+          {features.map((f) => (
+            <div class="feature">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. HOW IT WORKS -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>You run your business. We handle the rest.</p>
+        </div>
+        <ol class="steps">
+          {steps.map((s) => (
+            <li class="step">
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    <section class="section section-alt">
+      <div class="container faq-container">
+        <div class="section-head">
+          <h2>Common questions</h2>
+        </div>
+        {servicesFaq.map((item) => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- 7. FINAL CTA -->
+    <CtaBand
+      title="Ready to get more calls?"
+      text="Tell us about your business. We'll reply within one business day."
+    />
+  </main>
+</BaseLayout>

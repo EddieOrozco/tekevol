@@ -1,0 +1,119 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { industryDetails } from '@/data/industries';
+import { site } from '@/data/site';
+
+import '@/styles/variables.css';
+import '@/styles/reset.css';
+import '@/styles/base.css';
+import '@/styles/layout.css';
+import '@/styles/components.css';
+import '@/styles/pages/industries.css';
+import '@/styles/components/buttons/button.css';
+import '@/styles/components/sections/final-cta.css';
+
+const includes = [
+  { title: 'Built for phones first', text: 'Most of your customers find you on their phone. Every page is designed for a small screen and a thumb.' },
+  { title: 'Found on Google Maps', text: 'We set up and optimize your Google Business Profile so you show up when people search nearby.' },
+  { title: 'Local service-area pages', text: 'A page for each city or neighborhood you serve, so you rank where you actually work.' },
+  { title: 'Fast, secure hosting', text: 'Quick load times, SSL, backups, and updates handled for you. You focus on the work.' },
+];
+---
+<BaseLayout
+  title="Industries We Serve | Tekevol"
+  description="Website design for electricians, plumbers, HVAC companies, landscapers, restaurants and dental offices. See how Tekevol builds for your industry."
+  skipTo="main"
+>
+  <Fragment slot="head">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Industries We Serve | Tekevol" />
+    <meta property="og:description" content="Websites and local marketing built for the trades." />
+    <meta property="og:url" content={`${site.url}/industries`} />
+  </Fragment>
+
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="ind-hero" aria-labelledby="ind-hero-title">
+      <div class="container">
+        <p class="eyebrow eyebrow__accent">Industries We Serve</p>
+        <h1 id="ind-hero-title">Websites built for the trades not for everyone.</h1>
+        <p class="ind-lead">We only work with service businesses like yours. That means we already know what your customers search for, what makes them call, and what makes them bounce.</p>
+        <div class="ind-hero__actions">
+          <a href="/contact" class="btn btn-accent">Book Your Free Audit</a>
+          <a href="#industries" class="btn btn-outline">Find Your Trade</a>
+        </div>
+
+        <nav class="ind-jump" aria-label="Jump to industry">
+          <ul>
+            {industryDetails.map((ind) => <li><a href={`#${ind.slug}`}>{ind.name}</a></li>)}
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- INDUSTRY CARDS -->
+    <section class="ind-section" id="industries" aria-labelledby="ind-list-title">
+      <div class="container">
+        <div class="ind-section__head">
+          <h2 id="ind-list-title">Who we work with</h2>
+          <p>Each trade gets found differently. Here's how we build for yours.</p>
+        </div>
+
+        <div class="ind-grid">
+          {industryDetails.map((ind) => (
+            <article class="ind-card" id={ind.slug}>
+              <div class="ind-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={ind.icon} />
+              </div>
+              <h3>{ind.name}</h3>
+              <p>{ind.intro}</p>
+              <ul class="ind-card__list">
+                {ind.points.map((pt) => <li>{pt}</li>)}
+              </ul>
+              <p class="ind-card__searches"><span>Customers search:</span> {ind.searches}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT EVERY TRADE GETS -->
+    <section class="ind-section ind-section--alt" aria-labelledby="ind-features-title">
+      <div class="container">
+        <div class="ind-section__head">
+          <h2 id="ind-features-title">What every trade site includes</h2>
+          <p>No matter your trade, these are the basics that turn visitors into calls.</p>
+        </div>
+
+        <ul class="ind-features">
+          {includes.map((f) => (
+            <li class="ind-feature">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- DON'T SEE YOUR TRADE -->
+    <section class="ind-section" aria-labelledby="ind-other-title">
+      <div class="container">
+        <div class="ind-other">
+          <div>
+            <h2 id="ind-other-title">Don't see your trade?</h2>
+            <p>If you run a local service business, fencing, concrete, garage doors, pressure washing, pool service, flooring, we can help. The same approach works for any trade that gets hired by phone.</p>
+          </div>
+          <a href="/contact" class="ind-btn-outline">Tell Us About Your Business</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <CtaBand
+      title="Let's see what your website is costing you."
+      text="Get a free audit of your current site and Google listing. We'll show you exactly what's keeping the phone quiet, no pressure, no jargon."
+    />
+  </main>
+</BaseLayout>

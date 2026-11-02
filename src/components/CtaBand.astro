@@ -1,0 +1,23 @@
+---
+// The navy "svc-cta" band near the bottom of services, why-us and industries.
+interface Props {
+  title: string;
+  text: string;
+  /** Wrap the button in .btn-row (services, industries do; why-us doesn't) */
+  btnRow?: boolean;
+}
+const { title, text, btnRow = true } = Astro.props;
+---
+<section class="svc-cta">
+  <div class="container">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    {btnRow ? (
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-accent">Book Your Free Audit</a>
+      </div>
+    ) : (
+      <a href="/contact" class="btn btn-accent">Book Your Free Audit</a>
+    )}
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactForm from '@/components/ContactForm.astro';
+
+import '@/styles/variables.css';
+import '@/styles/reset.css';
+import '@/styles/base.css';
+import '@/styles/layout.css';
+import '@/styles/components.css';
+import '@/styles/components/buttons/button.css';
+import '@/styles/pages/contact.css';
+---
+<BaseLayout
+  title="Contact Tekevol | Get a Free Website Audit"
+  description="Tell us about your business and get a free website audit. We'll reply within one business day."
+  headerCta={{ label: 'Book Your Free Audit', href: '#audit-form' }}
+>
+  <main>
+    <!-- INTRO -->
+    <section class="contact-hero">
+      <div class="container">
+        <p class="contact-eyebrow">Free · No obligation · 1 business day reply</p>
+        <h1>Get Your Free Website Audit</h1>
+        <p class="contact-lead">Tell us about your business and we'll review your website, Google Business Profile, and local search rankings, then show you exactly what's costing you calls.</p>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-card" id="audit-form">
+          <h2 class="contact-card__title">Request your audit</h2>
+          <p class="contact-card__note">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+
+          <ContactForm />
+
+          <!-- What happens next (card footer) -->
+          <div class="contact-steps">
+            <h2 class="contact-steps__title">What happens next</h2>
+            <ol class="steps-list">
+              <li><strong>We review your presence.</strong> Website speed, mobile experience, Google Business Profile, and local rankings.</li>
+              <li><strong>We send your audit.</strong> A plain-English report within 1 business day.</li>
+              <li><strong>Quick call (optional).</strong> 15 minutes to walk through the fixes. No pressure.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

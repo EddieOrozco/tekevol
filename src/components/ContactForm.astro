@@ -1,0 +1,118 @@
+---
+// Full audit form (contact page). id="contact-form" is the form_id GA4 sees.
+import { tradeOptions } from '@/data/industries';
+
+// HubSpot service_interest option values (case-sensitive)
+const planOptions = [
+  { value: 'activate', label: 'Activate' },
+  { value: 'evolve', label: 'Evolve' },
+  { value: 'ascend', label: 'Ascend' },
+  { value: 'not_sure', label: 'Not sure yet' },
+];
+---
+<form
+  id="contact-form"
+  class="contact-form"
+  data-hubspot-form
+  data-success-target="contact-form-success"
+  novalidate>
+
+  <div class="form-row form-row--2">
+    <div class="form-field">
+      <label for="cf-firstname">First name <span class="form-req" aria-hidden="true">*</span></label>
+      <input id="cf-firstname" name="firstname" type="text" autocomplete="given-name" required aria-describedby="cf-firstname-error" />
+      <p class="form-error" id="cf-firstname-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="cf-lastname">Last name</label>
+      <input id="cf-lastname" name="lastname" type="text" autocomplete="family-name" aria-describedby="cf-lastname-error" />
+      <p class="form-error" id="cf-lastname-error" hidden></p>
+    </div>
+  </div>
+
+  <div class="form-row form-row--2">
+    <div class="form-field">
+      <label for="cf-email">Email <span class="form-req" aria-hidden="true">*</span></label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-error" />
+      <p class="form-error" id="cf-email-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="cf-phone">Phone <span class="form-req" aria-hidden="true">*</span></label>
+      <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-5555" required aria-describedby="cf-phone-error" />
+      <p class="form-error" id="cf-phone-error" hidden></p>
+    </div>
+  </div>
+
+  <div class="form-row form-row--2">
+    <div class="form-field">
+      <label for="cf-company">Business name</label>
+      <input id="cf-company" name="company" type="text" autocomplete="organization" aria-describedby="cf-company-error" />
+      <p class="form-error" id="cf-company-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="cf-trade">Your trade <span class="form-req" aria-hidden="true">*</span></label>
+      <select id="cf-trade" name="trade_industry" required aria-describedby="cf-trade-error">
+        <option value="">Select one…</option>
+        {tradeOptions.map((t) => <option value={t}>{t}</option>)}
+      </select>
+      <p class="form-error" id="cf-trade-error" hidden></p>
+    </div>
+  </div>
+
+  <fieldset class="form-field form-choice">
+    <legend>Do you have a website now?</legend>
+    <div class="form-choice__options">
+      <label class="form-choice__option">
+        <input type="radio" name="has_website" value="yes" /> Yes
+      </label>
+      <label class="form-choice__option">
+        <input type="radio" name="has_website" value="no" /> No
+      </label>
+    </div>
+  </fieldset>
+
+  <div class="form-field">
+    <label for="cf-website">Current website <span class="form-hint">(if you have one)</span></label>
+    <input id="cf-website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" aria-describedby="cf-website-error" />
+    <p class="form-error" id="cf-website-error" hidden></p>
+  </div>
+
+  <div class="form-field">
+    <label for="cf-service">Which plan are you interested in?</label>
+    <select id="cf-service" name="service_interest" aria-describedby="cf-service-error">
+      <option value="">Select one…</option>
+      {planOptions.map((o) => <option value={o.value}>{o.label}</option>)}
+    </select>
+    <p class="form-error" id="cf-service-error" hidden></p>
+  </div>
+
+  <div class="form-field">
+    <label for="cf-message">Anything else we should know?</label>
+    <textarea id="cf-message" name="message" rows="5" aria-describedby="cf-message-error"></textarea>
+    <p class="form-error" id="cf-message-error" hidden></p>
+  </div>
+
+  <!-- Honeypot: hidden from people, bots fill it in. Leave as is. -->
+  <div class="form-hp" aria-hidden="true">
+    <label for="cf-fax">Leave this field empty</label>
+    <input id="cf-fax" name="fax_number" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <p class="form-status" role="alert" hidden></p>
+
+  <button type="submit" class="form-submit">Get my free audit</button>
+
+  <p class="form-privacy">We'll only use your info to contact you about your project. No spam.</p>
+</form>
+
+<div id="contact-form-success" class="form-success" tabindex="-1" hidden>
+  <h3>Thanks, we got your request.</h3>
+  <p>We'll send your audit within one business day.</p>
+</div>
+
+<script>
+  import '@/scripts/forms.js';
+</script>
