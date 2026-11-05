@@ -70,9 +70,32 @@
   }
 
   function pushEvent(event, extra) {
-    // Ready for Google Tag Manager / GA4 once GTM is installed.
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(Object.assign({ event: event }, extra || {}));
+  }
+
+  // After a successful submit, send people to the thank-you page.
+  const THANK_YOU_URL = '/thank-you';
+  const REDIRECT_FALLBACK_MS = 1500; // max wait for GTM before redirecting anyway
+
+  // Push the lead event, wait for GTM to finish sending its tags (so the
+  // GA4 generate_lead hit isn't cut off by the page change), then redirect.
+  // If GTM is blocked or slow, the fallback timer redirects anyway.
+  function pushLeadAndRedirect(extra, formId) {
+    const target = THANK_YOU_URL + '?form=' + encodeURIComponent(formId);
+    let done = false;
+    function go() {
+      if (done) return;
+      done = true;
+      window.location.assign(target);
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: 'lead_form_submit' }, extra, {
+      eventCallback: go,
+      eventTimeout: REDIRECT_FALLBACK_MS,
+    }));
+    setTimeout(go, REDIRECT_FALLBACK_MS);
   }
 
   class SubmitError extends Error {
@@ -290,21 +313,24 @@
       setLoading(true);
       try {
         await submitToHubSpot(buildPayload(form));
-        pushEvent('lead_form_submit', {
-          form_id: formName,
-          trade_industry: form.trade_industry ? form.trade_industry.value : '',
-          service_interest: form.service_interest ? form.service_interest.value : '',
-        });
-        form.reset();
-        showSuccess();
       } catch (err) {
         console.error('[forms.js]', err, err && err.body);
         const mapped = showServerErrors(form, err);
         showStatus(mapped ? 'Please fix the highlighted field and try again.' : MESSAGES.generic);
         pushEvent('lead_form_error', { form_id: formName, error_status: (err && err.status) || 'network' });
-      } finally {
         setLoading(false);
+        return;
       }
+
+      // HubSpot accepted it. Read values before reset, then redirect.
+      // The button stays in "Sending…" until the thank-you page loads.
+      const leadData = {
+        form_id: formName,
+        trade_industry: form.trade_industry ? form.trade_industry.value : '',
+        service_interest: form.service_interest ? form.service_interest.value : '',
+      };
+      form.reset();
+      pushLeadAndRedirect(leadData, formName);
     });
   }
 
