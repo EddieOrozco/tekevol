@@ -8,80 +8,164 @@
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import { site } from '@/data/site';
+import PostHog from '@/components/PostHog.astro';
 
 interface Props {
-  title: string;
-  description?: string;
-  /** false = no canonical tag (thank-you, 404) */
-  canonical?: boolean;
-  /** e.g. "noindex" or "noindex, follow" */
-  robots?: string;
-  /** Header button. Defaults to "Book Your Free Audit" → /contact */
-  headerCta?: { label: string; href: string; external?: boolean };
-  /** Adds a "Skip to content" link pointing at this id */
-  skipTo?: string;
+	title: string;
+	description?: string;
+	/** false = no canonical tag (thank-you, 404) */
+	canonical?: boolean;
+	/** e.g. "noindex" or "noindex, follow" */
+	robots?: string;
+	/** Header button. Defaults to "Book Your Free Audit" → /contact */
+	headerCta?: { label: string; href: string; external?: boolean };
+	/** Adds a "Skip to content" link pointing at this id */
+	skipTo?: string;
 }
 
-const { title, description, canonical = true, robots, headerCta, skipTo } = Astro.props;
+const {
+	title,
+	description,
+	canonical = true,
+	robots,
+	headerCta,
+	skipTo,
+} = Astro.props;
 // e.g. https://tekevol.com/services (no .html, no trailing slash)
 const path = Astro.url.pathname.replace(/(\/index)?(\.html)?\/?$/, '');
 const canonicalUrl = path ? `${site.url}${path}` : `${site.url}/`;
 ---
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
 
-    <!-- Google Tag Manager -->
-    <script is:inline define:vars={{ gtmId: site.gtmId }}>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer',gtmId);
-    </script>
-    <!-- End Google Tag Manager -->
+		<!-- Google Tag Manager -->
+		<script is:inline define:vars={{ gtmId: site.gtmId }}>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', gtmId);
+		</script>
+		<!-- End Google Tag Manager -->
 
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    {robots && <meta name="robots" content={robots} />}
-    {canonical && <link rel="canonical" href={canonicalUrl} />}
+		<PostHog />
 
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+		<title>{title}</title>
+		{
+			description && (
+				<meta
+					name="description"
+					content={description}
+				/>
+			)
+		}
+		{
+			robots && (
+				<meta
+					name="robots"
+					content={robots}
+				/>
+			)
+		}
+		{
+			canonical && (
+				<link
+					rel="canonical"
+					href={canonicalUrl}
+				/>
+			)
+		}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+		<link
+			rel="icon"
+			href="/favicon.ico"
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			href="/favicon.svg"
+			type="image/svg+xml"
+		/>
+		<link
+			rel="apple-touch-icon"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="manifest"
+			href="/site.webmanifest"
+		/>
 
-    <!-- Page-specific head tags: Open Graph, JSON-LD, image preloads -->
-    <slot name="head" />
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
 
-    {skipTo && <a class="skip-link" href={`#${skipTo}`}>Skip to content</a>}
+		<!-- Page-specific head tags: Open Graph, JSON-LD, image preloads -->
+		<slot name="head" />
+	</head>
+	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"
+			></iframe></noscript
+		>
+		<!-- End Google Tag Manager (noscript) -->
 
-    <Header cta={headerCta} />
-    <slot />
-    <slot name="before-footer" />
-    <Footer />
+		{
+			skipTo && (
+				<a
+					class="skip-link"
+					href={`#${skipTo}`}>
+					Skip to content
+				</a>
+			)
+		}
 
-    <!-- Mobile nav toggle + scroll reveal / footer year (your existing scripts) -->
-    <script>
-      import '@/scripts/header.js';
-      import '@/scripts/main.js';
-    </script>
+		<Header cta={headerCta} />
+		<slot />
+		<slot name="before-footer" />
+		<Footer />
 
-    <!-- Start of HubSpot Embed Code -->
-    <script is:inline type="text/javascript" id="hs-script-loader" async defer
-      src={`//js-${site.hubspotRegion}.hs-scripts.com/${site.hubspotPortalId}.js`}></script>
-    <!-- End of HubSpot Embed Code -->
-  </body>
+		<!-- Mobile nav toggle + scroll reveal / footer year (your existing scripts) -->
+		<script>
+			import '@/scripts/header.js';
+			import '@/scripts/main.js';
+		</script>
+
+		<!-- Start of HubSpot Embed Code -->
+		<script
+			is:inline
+			type="text/javascript"
+			id="hs-script-loader"
+			async
+			defer
+			src={`//js-${site.hubspotRegion}.hs-scripts.com/${site.hubspotPortalId}.js`}
+		></script>
+		<!-- End of HubSpot Embed Code -->
+	</body>
 </html>

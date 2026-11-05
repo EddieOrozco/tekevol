@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Pricing from '@/components/Pricing.astro';
 import QuoteForm from '@/components/QuoteForm.astro';
 import JsonLd from '@/components/JsonLd.astro';
-import { homeTiers } from '@/data/pricing';
+import { tiers } from '@/data/pricing';
 import { homeIndustries } from '@/data/industries';
 import { site } from '@/data/site';
 
@@ -137,7 +137,7 @@ const orgSchema = {
 
     <!-- ===== Pricing ===== -->
     <Pricing
-      tiers={homeTiers}
+      tiers={tiers}
       strongBestFor
       title="Choose the plan that fits your business"
       subtitle="From getting online to owning your local market. Start where you are and grow into more support as you need it."

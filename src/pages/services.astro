@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Pricing from '@/components/Pricing.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import JsonLd from '@/components/JsonLd.astro';
-import { servicesTiers } from '@/data/pricing';
+import { tiers } from '@/data/pricing';
 import { servicesFaq } from '@/data/faq';
 import { site } from '@/data/site';
 
@@ -45,9 +45,9 @@ const steps = [
 // HTML site were left out rather than published).
 const toNumber = (price: string) => Number(price.replace(/[^0-9.]/g, ''));
 const serviceNames: Record<string, { name: string; description: string }> = {
-  activate: { name: 'Website & Hosting', description: 'up to a 6 page custom website with hosting, SSL, daily backups, security updates, and perform website updates.' },
-  evolve: { name: 'Website + Local SEO', description: 'Everything in Activate & Open Your Doors, plus Google Business Profile management, weekly posts, review monitoring and response, citation cleanup, and a monthly local SEO report.' },
-  ascend: { name: 'Multi-Location Growth', description: 'Multi-location management, monthly SEO content, competitor tracking, regular strategy calls, and priority support.' },
+  activate: { name: 'Website & Hosting', description: 'A 5-page mobile-friendly website with managed hosting, SSL, backups, security maintenance, basic SEO setup, and click-to-call buttons.' },
+  evolve: { name: 'Website + Local SEO', description: 'Everything in Activate & Open Your Doors, plus local service-area pages, a lead contact form, Google Business Profile management, monthly Google posts and review responses, citation cleanup, and a monthly report.' },
+  ascend: { name: 'Multi-Location Growth', description: 'Everything in Evolve & Make the Phone Ring, plus two new or improved pages monthly, SEO for traditional, local, and AI search, structured data, a monthly strategy call, and priority support.' },
 };
 
 const businessSchema = {
@@ -63,7 +63,7 @@ const businessSchema = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Website and Local SEO Plans',
-    itemListElement: servicesTiers.map((t) => ({
+    itemListElement: tiers.map((t) => ({
       '@type': 'Offer',
       name: t.name,
       url: `${site.url}/services#${t.anchor}`,
@@ -119,7 +119,8 @@ const businessSchema = {
 
     <!-- 3. PRICING TIERS -->
     <Pricing
-      tiers={servicesTiers}
+      tiers={tiers}
+      strongBestFor
       title="Pick the plan that fits your business"
       subtitle="One-time setup, then a flat monthly rate. Upgrade or cancel anytime."
     />

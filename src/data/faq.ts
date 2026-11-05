@@ -40,7 +40,7 @@ export const servicesFaq: Faq[] = [
   },
   {
     q: 'Do you provide website hosting and maintenance?',
-    a: 'Yes. Our care plan, Activate & Open Your Doors, is $149/month. That covers fast managed hosting, SSL, daily off-site backups, security monitoring and updates, a spam-filtered lead form wired to your CRM, instant lead alerts with tap-to-call, automated review requests, and a monthly one-page snapshot.',
+    a: 'Yes. Our care plan, Activate & Open Your Doors, is $200/month. That covers fast managed hosting, SSL, daily off-site backups, security monitoring and updates, a spam-filtered lead form wired to your CRM, instant lead alerts with tap-to-call, automated review requests, and a monthly one-page snapshot.',
   },
   {
     q: 'Why is my contractor website not generating leads?',
